@@ -42,6 +42,9 @@ def csv_to_rdf(csv_path, rdf_file_name):
     Country = schema['Country']
     Date = schema['Date']
     Genre = schema['Genre']
+    Pegi = schema['Age_restriction']
+    ID = schema['ID']
+
 
     # Create classes
     g.add((Media, RDF.type, RDFS.Class))
@@ -51,6 +54,8 @@ def csv_to_rdf(csv_path, rdf_file_name):
     g.add((Country, RDF.type, RDFS.Class))
     g.add((Date, RDF.type, RDFS.Class))
     g.add((Genre, RDF.type, RDFS.Class))
+    g.add((Pegi, RDF.type, RDFS.Class))
+    g.add((ID, RDF.type, RDFS.Class))
 
 
 
@@ -87,34 +92,44 @@ def csv_to_rdf(csv_path, rdf_file_name):
 
 
         # Add properties for media
+        g.add((media_uri, id, ID))
         g.add((media_uri, id, rdflib.Literal(row['show_id'])))
+        g.add((media_uri, RDF.type, Media))
         g.add((media_uri, schema.name, rdflib.Literal(row['title'])))
         g.add((media_uri, desc, rdflib.Literal(row['description'])))
+        g.add((media_uri, added_in, Date))
         g.add((media_uri, added_in, rdflib.Literal(row['release_year'])))
         g.add((media_uri, duration, rdflib.Literal(row['duration'])))
         #g.add((media_uri, listed_in, rdflib.Literal(row['listed_in'])))
+        g.add((media_uri, produced, Country))
         g.add((media_uri, produced, rdflib.Literal(row['country'])))
+        g.add((media_uri, age_limit, Pegi))
         g.add((media_uri,age_limit, rdflib.Literal(row['rating'])))
 
         # add metadata for media
-        g.add((media_uri, RDF.type, Media))
+        #g.add((media_uri, RDF.type, Media))
+
 
         # Add labels for casting, director, and Genres
         for cast_member in row['cast'].split(','):
             cast_member1 = cast_member.replace("_", " ")
             cast_member2 = cast_member1.replace(" ", "", 1)
+            g.add((media_uri, casting, Actors))
             g.add((media_uri, casting, rdflib.Literal(cast_member2)))
+            g.add((Actors, figuresIn, Media))
             g.add((rdflib.Literal(cast_member2), figuresIn, media_uri))
 
         for director in row['director'].split(','):
             dir1 = director.replace("_", " ")
             dir2 = dir1.replace(" ", "", 1)
-            g.add((media_uri, schema.director, rdflib.Literal(dir2)))
+            g.add((media_uri, directedBy, Person))
+            g.add((media_uri, directedBy, rdflib.Literal(dir2)))
 
         for genre in row['listed_in'].split(','):
             genre1=genre.replace("_"," ")
             genre2=genre1.replace(" ","",1)
-            g.add((media_uri, schema.genre, rdflib.Literal(genre2)))
+            g.add((media_uri, listed_in, Genre))
+            g.add((media_uri, listed_in, rdflib.Literal(genre2)))
 
     # Serialize RDF graph to file
     g.serialize(destination=rdf_file_name, format='turtle')
