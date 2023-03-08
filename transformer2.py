@@ -29,9 +29,9 @@ def csv_to_rdf(csv_path, rdf_file_name):
     g = rdflib.Graph()
 
     # Bind namespaces
-    schema = rdflib.Namespace("http://schema.org/")
+    schema = rdflib.Namespace("http://example.org/")
 
-    g.bind("schema", schema)
+    g.bind("ex", schema)
     g.bind('rdf', RDF)
     g.bind('rdfs', RDFS)
 
@@ -44,6 +44,9 @@ def csv_to_rdf(csv_path, rdf_file_name):
     Genre = schema['Genre']
     Pegi = schema['Age_restriction']
     ID = schema['ID']
+    Description = schema['Description']
+
+
 
 
     # Create classes
@@ -56,22 +59,25 @@ def csv_to_rdf(csv_path, rdf_file_name):
     g.add((Genre, RDF.type, RDFS.Class))
     g.add((Pegi, RDF.type, RDFS.Class))
     g.add((ID, RDF.type, RDFS.Class))
+    g.add((Description, RDF.type, RDFS.Class))
 
 
 
 
 
     # properties namespaces
-    id = schema['id']
+    id = schema['hasId']
     directedBy = schema['directedBy']
     casting = schema['casting']
     figuresIn = schema['figuresIn']
     produced = schema['producedIn']
     added_in = schema['added_in']
-    duration = schema['duration']
+    duration = schema['hasDuration']
     listed_in = schema['listed_in']
-    desc = schema['desc']
-    age_limit=schema['age_categorization']
+    desc = schema['hasDescription']
+    age_limit=schema['hasAge_categorization']
+    name=schema['hasName']
+
 
 
     #create the properties
@@ -84,6 +90,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
     g.add((figuresIn, RDF.type, RDF.Property))
     g.add((casting, OWL.inverseOf, figuresIn))
     g.add((age_limit,RDF.type,RDF.Property))
+    g.add((name, RDF.type,RDF.Property))
 
     # Create triples for each row in dataframe
     for _, row in df.iterrows():
@@ -95,14 +102,13 @@ def csv_to_rdf(csv_path, rdf_file_name):
         g.add((media_uri, id, ID))
         g.add((media_uri, id, rdflib.Literal(row['show_id'])))
         g.add((media_uri, RDF.type, Media))
-        g.add((media_uri, schema.name, rdflib.Literal(row['title'])))
+        g.add((media_uri, name, rdflib.Literal(row['title'])))
         g.add((media_uri, desc, rdflib.Literal(row['description'])))
         g.add((media_uri, added_in, Date))
         g.add((media_uri, added_in, rdflib.Literal(row['release_year'])))
         g.add((media_uri, duration, rdflib.Literal(row['duration'])))
         #g.add((media_uri, listed_in, rdflib.Literal(row['listed_in'])))
-        g.add((media_uri, produced, Country))
-        g.add((media_uri, produced, rdflib.Literal(row['country'])))
+
         g.add((media_uri, age_limit, Pegi))
         g.add((media_uri,age_limit, rdflib.Literal(row['rating'])))
 
@@ -130,6 +136,13 @@ def csv_to_rdf(csv_path, rdf_file_name):
             genre2=genre1.replace(" ","",1)
             g.add((media_uri, listed_in, Genre))
             g.add((media_uri, listed_in, rdflib.Literal(genre2)))
+
+        for country in row['country'].split(','):
+            c1=country.replace("_"," ")
+            c2=c1.replace(" ","",1)
+            g.add((media_uri, produced, Country))
+            g.add((media_uri, produced, rdflib.Literal(c2)))
+
 
     # Serialize RDF graph to file
     g.serialize(destination=rdf_file_name, format='turtle')
