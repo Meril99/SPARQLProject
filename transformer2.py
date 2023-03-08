@@ -45,6 +45,8 @@ def csv_to_rdf(csv_path, rdf_file_name):
     Pegi = schema['Age_restriction']
     ID = schema['ID']
     Description = schema['Description']
+    Directeur = schema['Director']
+
 
 
 
@@ -60,6 +62,9 @@ def csv_to_rdf(csv_path, rdf_file_name):
     g.add((Pegi, RDF.type, RDFS.Class))
     g.add((ID, RDF.type, RDFS.Class))
     g.add((Description, RDF.type, RDFS.Class))
+    g.add((Directeur, RDF.type, RDFS.Class))
+    g.add((Directeur, RDFS.subClassOf, Person))
+
 
 
 
@@ -103,7 +108,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
         g.add((media_uri, id, rdflib.Literal(row['show_id'])))
         g.add((media_uri, RDF.type, Media))
         g.add((media_uri, name, rdflib.Literal(row['title'])))
-        g.add((media_uri, desc, rdflib.Literal(row['description'])))
+        g.add((media_uri, desc, rdflib.Literal(row['description'].split(' '))))
         g.add((media_uri, added_in, Date))
         g.add((media_uri, added_in, rdflib.Literal(row['release_year'])))
         g.add((media_uri, duration, rdflib.Literal(row['duration'])))
@@ -128,7 +133,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
         for director in row['director'].split(','):
             dir1 = director.replace("_", " ")
             dir2 = dir1.replace(" ", "", 1)
-            g.add((media_uri, directedBy, Person))
+            g.add((media_uri, directedBy, Directeur))
             g.add((media_uri, directedBy, rdflib.Literal(dir2)))
 
         for genre in row['listed_in'].split(','):
