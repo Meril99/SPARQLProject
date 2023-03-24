@@ -87,7 +87,7 @@ def csv_to_rdf(df, rdf_file_name):
     produced = schema['producedIn']
     added_in = schema['added_in']
     duration = schema['hasDuration']
-    durationInMin = schema['hasDuration(Min)']
+    durationInMin = schema['hasDurationInMin']
     listed_in = schema['listed_in']
     desc = schema['hasDescription']
     age_limit = schema['hasAge_categorization']
@@ -118,7 +118,7 @@ def csv_to_rdf(df, rdf_file_name):
     # duration in Minutes
     g.add((durationInMin, RDF.type, RDF.Property))
     g.add((durationInMin, RDFS.domain, Media))
-    g.add((durationInMin, RDFS.range, XSD.integer))
+    g.add((durationInMin, RDFS.range, XSD.string))
 
     # listed_in
     g.add((listed_in, RDF.type, RDF.Property))
@@ -190,10 +190,10 @@ def csv_to_rdf(df, rdf_file_name):
             g.add((movie_uri, RDF.type, Movie))
 
             # Date where the movie got added on Netflix
-            g.add((movie_uri, added_in, Date))
+            g.add((movie_uri, added_in, date_uri))
+            g.add((movie_uri, added_in, Literal(row['date_added'].replace(' ','_'))))
 
-            # release year
-            g.add((movie_uri, releaseYear, Literal(row['release_year'])))
+
 
             # age limit triplets
             age_restriction = row['rating']
@@ -218,13 +218,14 @@ def csv_to_rdf(df, rdf_file_name):
             g.add((movie_uri, desc, Literal(row['description'].split(' '))))
 
             # release_year triplets
-            g.add((movie_uri, added_in, Literal(row['release_year'])))
+            g.add((movie_uri, releaseYear, Literal(row['release_year'])))
 
             # duration
             duree = row['duration'].replace(" ", "_")
-            if "min" in duree:
+            if "min" in row['duration']:
                 g.add((movie_uri, durationInMin, Literal(int(duree.replace("min", "")))))
-            g.add((movie_uri, duration, Literal(duree.replace(" ", "_"))))
+            else:
+                g.add((movie_uri, duration, Literal(duree.replace(" ", "_"))))
 
             # Add triplet for casting, director, and Genres
 
@@ -272,8 +273,9 @@ def csv_to_rdf(df, rdf_file_name):
             # Add triplets
             g.add((tv_show_uri, RDF.type, TV_show))
 
-            # Date where the TV show got added on Netflix
-            g.add((tv_show_uri, added_in, Date))
+            # Date where the movie got added on Netflix
+            g.add((tv_show_uri, added_in, date_uri))
+            g.add((tv_show_uri, added_in, Literal(row['date_added'].replace(' ', '_'))))
 
             # release year
             g.add((tv_show_uri, releaseYear, Literal(row['release_year'])))
@@ -298,14 +300,12 @@ def csv_to_rdf(df, rdf_file_name):
             # descfription triplets
             g.add((tv_show_uri, desc, Literal(row['description'].split(' '))))
 
-            # release_year triplets
-            g.add((tv_show_uri, added_in, Literal(row['release_year'])))
-
             # duration
             duree = row['duration'].replace(" ", "_")
-            if "min" in duree:
+            if "min" in row['duration']:
                 g.add((tv_show_uri, durationInMin, Literal(int(duree.replace("min", "")))))
-            g.add((tv_show_uri, duration, Literal(duree.replace(" ", "_"))))
+            else:
+                g.add((tv_show_uri, duration, Literal(duree.replace(" ", "_"))))
 
             # Add labels for casting, director, and Genres
             for cast_member in row['cast'].split(','):
