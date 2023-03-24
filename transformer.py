@@ -220,12 +220,10 @@ def csv_to_rdf(csv_path, rdf_file_name):
             g.add((movie_uri, age_limit, age_restriction_uri))
             g.add((movie_uri, age_limit, Literal(row['rating'])))
 
-            # age_limit occurs in following media;
-            g.add((age_restriction_uri, occursin, movie_uri))
-            g.add((age_restriction_uri, occursin, Literal(row['title'])))
+
 
             # title triplets
-            g.add((movie_uri, name, Literal(row['title'].replace(' ', ''))))
+            g.add((movie_uri, name, Literal(row['title'].replace('_', ''))))
 
             #id triplets
             g.add((movie_uri, id, Literal(row['show_id'])))
@@ -301,12 +299,9 @@ def csv_to_rdf(csv_path, rdf_file_name):
                 g.add((tv_show_uri, age_limit, age_restriction_uri))
                 g.add((tv_show_uri, age_limit, Literal(row['rating'])))
 
-                # age_limit occurs in following media;
-                g.add((age_restriction_uri, occursin, tv_show_uri))
-                g.add((age_restriction_uri, occursin, Literal(row['title'])))
 
                 # title triplets
-                g.add((tv_show_uri, name, Literal(row['title'].replace(' ', ''))))
+                g.add((tv_show_uri, name, Literal(row['title'].replace('_', ''))))
 
                 #id triplets
                 g.add((tv_show_uri, id, Literal(row['show_id'])))
