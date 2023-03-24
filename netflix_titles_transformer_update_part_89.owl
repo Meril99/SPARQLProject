@@ -5,58 +5,6 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 >
-  <rdf:Description rdf:about="http://example.org/Comedies">
-    <rdf:type rdf:resource="http://example.org/Genre"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/International_TV_Shows">
-    <rdf:type rdf:resource="http://example.org/Genre"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Zombieland/Movie">
-    <rdf:type rdf:resource="http://example.org/Media"/>
-    <rdf:type rdf:resource="http://example.org/Movie"/>
-    <ex:added_in rdf:resource="http://example.org/Zombieland/November_1,_2019"/>
-    <ex:added_in>November_1,_2019</ex:added_in>
-    <ex:hasAge_categorization rdf:resource="http://example.org/R"/>
-    <ex:hasAge_categorization>R</ex:hasAge_categorization>
-    <ex:title>Zombieland</ex:title>
-    <ex:hasId>s8805</ex:hasId>
-    <ex:hasDescription>['Looking', 'to', 'survive', 'in', 'a', 'world', 'taken', 'over', 'by', 'zombies,', 'a', 'dorky', 'college', 'student', 'teams', 'with', 'an', 'urban', 'roughneck', 'and', 'a', 'pair', 'of', 'grifter', 'sisters.']</ex:hasDescription>
-    <ex:releasedIn>2009</ex:releasedIn>
-    <ex:hasDuration(Min) rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">88</ex:hasDuration(Min)>
-    <ex:casting rdf:resource="http://example.org/Jesse_Eisenberg"/>
-    <ex:casting>JesseEisenberg</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Woody_Harrelson"/>
-    <ex:casting>WoodyHarrelson</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Emma_Stone"/>
-    <ex:casting>EmmaStone</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Abigail_Breslin"/>
-    <ex:casting>AbigailBreslin</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Amber_Heard"/>
-    <ex:casting>AmberHeard</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Bill_Murray"/>
-    <ex:casting>BillMurray</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Derek_Graf"/>
-    <ex:casting>DerekGraf</ex:casting>
-    <ex:directedBy rdf:resource="http://example.org/Ruben_Fleischer"/>
-    <ex:directedBy>RubenFleischer</ex:directedBy>
-    <ex:listed_in rdf:resource="http://example.org/Comedies"/>
-    <ex:listed_in>Comedies</ex:listed_in>
-    <ex:listed_in rdf:resource="http://example.org/_Horror_Movies"/>
-    <ex:listed_in>HorrorMovies</ex:listed_in>
-    <ex:producedIn rdf:resource="http://example.org/United_States"/>
-    <ex:producedIn>UnitedStates</ex:producedIn>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Anthony_Edwards">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Korean_TV_Shows">
-    <rdf:type rdf:resource="http://example.org/Genre"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Mark_Ruffalo">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://example.org/ZindagiGulzarHai/TV_Show">
     <rdf:type rdf:resource="http://example.org/Media"/>
     <rdf:type rdf:resource="http://example.org/TV_show"/>
@@ -98,181 +46,9 @@
     <ex:producedIn rdf:resource="http://example.org/Pakistan"/>
     <ex:producedIn>Pakistan</ex:producedIn>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Zoom/Movie">
-    <rdf:type rdf:resource="http://example.org/Media"/>
-    <rdf:type rdf:resource="http://example.org/Movie"/>
-    <ex:added_in rdf:resource="http://example.org/Zoom/January_11,_2020"/>
-    <ex:added_in>January_11,_2020</ex:added_in>
-    <ex:hasAge_categorization rdf:resource="http://example.org/PG"/>
-    <ex:hasAge_categorization>PG</ex:hasAge_categorization>
-    <ex:title>Zoom</ex:title>
-    <ex:hasId>s8806</ex:hasId>
-    <ex:hasDescription>['Dragged', 'from', 'civilian', 'life,', 'a', 'former', 'superhero', 'must', 'train', 'a', 'new', 'crop', 'of', 'youthful', 'saviors', 'when', 'the', 'military', 'preps', 'for', 'an', 'attack', 'by', 'a', 'familiar', 'villain.']</ex:hasDescription>
-    <ex:releasedIn>2006</ex:releasedIn>
-    <ex:hasDuration(Min) rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">88</ex:hasDuration(Min)>
-    <ex:casting rdf:resource="http://example.org/Tim_Allen"/>
-    <ex:casting>TimAllen</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Courteney_Cox"/>
-    <ex:casting>CourteneyCox</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Chevy_Chase"/>
-    <ex:casting>ChevyChase</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Kate_Mara"/>
-    <ex:casting>KateMara</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Ryan_Newman"/>
-    <ex:casting>RyanNewman</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Michael_Cassidy"/>
-    <ex:casting>MichaelCassidy</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Spencer_Breslin"/>
-    <ex:casting>SpencerBreslin</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Rip_Torn"/>
-    <ex:casting>RipTorn</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Kevin_Zegers"/>
-    <ex:casting>KevinZegers</ex:casting>
-    <ex:directedBy rdf:resource="http://example.org/Peter_Hewitt"/>
-    <ex:directedBy>PeterHewitt</ex:directedBy>
-    <ex:listed_in rdf:resource="http://example.org/Children_&amp;_Family_Movies"/>
-    <ex:listed_in>Children&amp;FamilyMovies</ex:listed_in>
-    <ex:listed_in rdf:resource="http://example.org/_Comedies"/>
-    <ex:listed_in>Comedies</ex:listed_in>
-    <ex:producedIn rdf:resource="http://example.org/United_States"/>
-    <ex:producedIn>UnitedStates</ex:producedIn>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Zubaan/Movie">
-    <rdf:type rdf:resource="http://example.org/Media"/>
-    <rdf:type rdf:resource="http://example.org/Movie"/>
-    <ex:added_in rdf:resource="http://example.org/Zubaan/March_2,_2019"/>
-    <ex:added_in>March_2,_2019</ex:added_in>
-    <ex:hasAge_categorization rdf:resource="http://example.org/TV-14"/>
-    <ex:hasAge_categorization>TV-14</ex:hasAge_categorization>
-    <ex:title>Zubaan</ex:title>
-    <ex:hasId>s8807</ex:hasId>
-    <ex:hasDescription>['A', 'scrappy', 'but', 'poor', 'boy', 'worms', 'his', 'way', 'into', 'a', "tycoon's", 'dysfunctional', 'family,', 'while', 'facing', 'his', 'fear', 'of', 'music', 'and', 'the', 'truth', 'about', 'his', 'past.']</ex:hasDescription>
-    <ex:releasedIn>2015</ex:releasedIn>
-    <ex:hasDuration(Min) rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">111</ex:hasDuration(Min)>
-    <ex:casting rdf:resource="http://example.org/Vicky_Kaushal"/>
-    <ex:casting>VickyKaushal</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Sarah-Jane_Dias"/>
-    <ex:casting>Sarah-JaneDias</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Raaghav_Chanana"/>
-    <ex:casting>RaaghavChanana</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Manish_Chaudhary"/>
-    <ex:casting>ManishChaudhary</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Meghna_Malik"/>
-    <ex:casting>MeghnaMalik</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Malkeet_Rauni"/>
-    <ex:casting>MalkeetRauni</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Anita_Shabdish"/>
-    <ex:casting>AnitaShabdish</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Chittaranjan_Tripathy"/>
-    <ex:casting>ChittaranjanTripathy</ex:casting>
-    <ex:directedBy rdf:resource="http://example.org/Mozez_Singh"/>
-    <ex:directedBy>MozezSingh</ex:directedBy>
-    <ex:listed_in rdf:resource="http://example.org/Dramas"/>
-    <ex:listed_in>Dramas</ex:listed_in>
-    <ex:listed_in rdf:resource="http://example.org/_International_Movies"/>
-    <ex:listed_in>InternationalMovies</ex:listed_in>
-    <ex:listed_in rdf:resource="http://example.org/_Music_&amp;_Musicals"/>
-    <ex:listed_in>Music&amp;Musicals</ex:listed_in>
-    <ex:producedIn rdf:resource="http://example.org/India"/>
-    <ex:producedIn>India</ex:producedIn>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/PG">
-    <rdf:type rdf:resource="http://example.org/Age_category"/>
-    <ex:occursIn rdf:resource="http://example.org/Zoom/Movie"/>
-    <ex:occursIn>Zoom</ex:occursIn>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Waseem_Abbas">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ZombieDumb/TV_Show">
-    <rdf:type rdf:resource="http://example.org/Media"/>
-    <rdf:type rdf:resource="http://example.org/TV_show"/>
-    <ex:added_in rdf:resource="http://example.org/ZombieDumb/July_1,_2019"/>
-    <ex:added_in>July_1,_2019</ex:added_in>
-    <ex:releasedIn>2018</ex:releasedIn>
-    <ex:hasAge_categorization rdf:resource="http://example.org/TV-Y7"/>
-    <ex:hasAge_categorization>TV-Y7</ex:hasAge_categorization>
-    <ex:title>Zombie Dumb</ex:title>
-    <ex:hasId>s8804</ex:hasId>
-    <ex:hasDescription>['While', 'living', 'alone', 'in', 'a', 'spooky', 'town,', 'a', 'young', 'girl', 'befriends', 'a', 'motley', 'crew', 'of', 'zombie', 'children', 'with', 'diverse', 'personalities.']</ex:hasDescription>
-    <ex:hasDuration>2_Seasons</ex:hasDuration>
-    <ex:casting rdf:resource="http://example.org/Unknown"/>
-    <ex:casting>Unknown</ex:casting>
-    <ex:directedBy rdf:resource="http://example.org/Unknown"/>
-    <ex:directedBy>Unknown</ex:directedBy>
-    <ex:listed_in rdf:resource="http://example.org/Kids'_TV"/>
-    <ex:listed_in>Kids'TV</ex:listed_in>
-    <ex:listed_in rdf:resource="http://example.org/_Korean_TV_Shows"/>
-    <ex:listed_in>KoreanTVShows</ex:listed_in>
-    <ex:listed_in rdf:resource="http://example.org/_TV_Comedies"/>
-    <ex:listed_in>TVComedies</ex:listed_in>
-    <ex:producedIn rdf:resource="http://example.org/Unknown"/>
-    <ex:producedIn>Unknown</ex:producedIn>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Jordan">
-    <rdf:type rdf:resource="http://example.org/Country"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Vicky_Kaushal">
+  <rdf:Description rdf:about="http://example.org/_Sarah-Jane_Dias">
     <rdf:type rdf:resource="http://example.org/Actors"/>
     <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/casting">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <owl:inverseOf rdf:resource="http://example.org/figuresIn"/>
-    <rdfs:domain rdf:resource="http://example.org/Media"/>
-    <rdfs:range rdf:resource="http://example.org/Actors"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Zinzana/Movie">
-    <rdf:type rdf:resource="http://example.org/Media"/>
-    <rdf:type rdf:resource="http://example.org/Movie"/>
-    <ex:added_in rdf:resource="http://example.org/Zinzana/March_9,_2016"/>
-    <ex:added_in>March_9,_2016</ex:added_in>
-    <ex:hasAge_categorization rdf:resource="http://example.org/TV-MA"/>
-    <ex:hasAge_categorization>TV-MA</ex:hasAge_categorization>
-    <ex:title>Zinzana</ex:title>
-    <ex:hasId>s8802</ex:hasId>
-    <ex:hasDescription>['Recovering', 'alcoholic', 'Talal', 'wakes', 'up', 'inside', 'a', 'small-town', 'police', 'station', 'cell,', 'where', "he's", 'subject', 'to', 'themind', 'games', 'of', 'a', 'psychotic', 'sadist.']</ex:hasDescription>
-    <ex:releasedIn>2015</ex:releasedIn>
-    <ex:hasDuration(Min) rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">96</ex:hasDuration(Min)>
-    <ex:casting rdf:resource="http://example.org/Ali_Suliman"/>
-    <ex:casting>AliSuliman</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Saleh_Bakri"/>
-    <ex:casting>SalehBakri</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Yasa"/>
-    <ex:casting>Yasa</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Ali_Al-Jabri"/>
-    <ex:casting>AliAl-Jabri</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Mansoor_Alfeeli"/>
-    <ex:casting>MansoorAlfeeli</ex:casting>
-    <ex:casting rdf:resource="http://example.org/_Ahd"/>
-    <ex:casting>Ahd</ex:casting>
-    <ex:directedBy rdf:resource="http://example.org/Majid_Al_Ansari"/>
-    <ex:directedBy>MajidAlAnsari</ex:directedBy>
-    <ex:listed_in rdf:resource="http://example.org/Dramas"/>
-    <ex:listed_in>Dramas</ex:listed_in>
-    <ex:listed_in rdf:resource="http://example.org/_International_Movies"/>
-    <ex:listed_in>InternationalMovies</ex:listed_in>
-    <ex:listed_in rdf:resource="http://example.org/_Thrillers"/>
-    <ex:listed_in>Thrillers</ex:listed_in>
-    <ex:producedIn rdf:resource="http://example.org/United_Arab_Emirates"/>
-    <ex:producedIn>UnitedArabEmirates</ex:producedIn>
-    <ex:producedIn rdf:resource="http://example.org/_Jordan"/>
-    <ex:producedIn>Jordan</ex:producedIn>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Unknown">
-    <rdf:type rdf:resource="http://example.org/Director"/>
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <rdf:type rdf:resource="http://example.org/Country"/>
-    <ex:figuresIn rdf:resource="http://example.org/ZombieDumb/TV_Show"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Robert_Downey_Jr.">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Ahd">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zinzana/Movie"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/Zodiac/Movie">
     <rdf:type rdf:resource="http://example.org/Media"/>
@@ -285,7 +61,7 @@
     <ex:hasId>s8803</ex:hasId>
     <ex:hasDescription>['A', 'political', 'cartoonist,', 'a', 'crime', 'reporter', 'and', 'a', 'pair', 'of', 'cops', 'investigate', 'San', "Francisco's", 'infamous', 'Zodiac', 'Killer', 'in', 'this', 'thriller', 'based', 'on', 'a', 'true', 'story.']</ex:hasDescription>
     <ex:releasedIn>2007</ex:releasedIn>
-    <ex:hasDuration(Min) rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">158</ex:hasDuration(Min)>
+    <ex:hasDurationInMin rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">158</ex:hasDurationInMin>
     <ex:casting rdf:resource="http://example.org/Mark_Ruffalo"/>
     <ex:casting>MarkRuffalo</ex:casting>
     <ex:casting rdf:resource="http://example.org/_Jake_Gyllenhaal"/>
@@ -317,15 +93,219 @@
     <ex:producedIn rdf:resource="http://example.org/United_States"/>
     <ex:producedIn>UnitedStates</ex:producedIn>
   </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Zombieland/Movie">
+    <rdf:type rdf:resource="http://example.org/Media"/>
+    <rdf:type rdf:resource="http://example.org/Movie"/>
+    <ex:added_in rdf:resource="http://example.org/Zombieland/November_1,_2019"/>
+    <ex:added_in>November_1,_2019</ex:added_in>
+    <ex:hasAge_categorization rdf:resource="http://example.org/R"/>
+    <ex:hasAge_categorization>R</ex:hasAge_categorization>
+    <ex:title>Zombieland</ex:title>
+    <ex:hasId>s8805</ex:hasId>
+    <ex:hasDescription>['Looking', 'to', 'survive', 'in', 'a', 'world', 'taken', 'over', 'by', 'zombies,', 'a', 'dorky', 'college', 'student', 'teams', 'with', 'an', 'urban', 'roughneck', 'and', 'a', 'pair', 'of', 'grifter', 'sisters.']</ex:hasDescription>
+    <ex:releasedIn>2009</ex:releasedIn>
+    <ex:hasDurationInMin rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">88</ex:hasDurationInMin>
+    <ex:casting rdf:resource="http://example.org/Jesse_Eisenberg"/>
+    <ex:casting>JesseEisenberg</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Woody_Harrelson"/>
+    <ex:casting>WoodyHarrelson</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Emma_Stone"/>
+    <ex:casting>EmmaStone</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Abigail_Breslin"/>
+    <ex:casting>AbigailBreslin</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Amber_Heard"/>
+    <ex:casting>AmberHeard</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Bill_Murray"/>
+    <ex:casting>BillMurray</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Derek_Graf"/>
+    <ex:casting>DerekGraf</ex:casting>
+    <ex:directedBy rdf:resource="http://example.org/Ruben_Fleischer"/>
+    <ex:directedBy>RubenFleischer</ex:directedBy>
+    <ex:listed_in rdf:resource="http://example.org/Comedies"/>
+    <ex:listed_in>Comedies</ex:listed_in>
+    <ex:listed_in rdf:resource="http://example.org/_Horror_Movies"/>
+    <ex:listed_in>HorrorMovies</ex:listed_in>
+    <ex:producedIn rdf:resource="http://example.org/United_States"/>
+    <ex:producedIn>UnitedStates</ex:producedIn>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Dramas">
+    <rdf:type rdf:resource="http://example.org/Genre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Zubaan/Movie">
+    <rdf:type rdf:resource="http://example.org/Media"/>
+    <rdf:type rdf:resource="http://example.org/Movie"/>
+    <ex:added_in rdf:resource="http://example.org/Zubaan/March_2,_2019"/>
+    <ex:added_in>March_2,_2019</ex:added_in>
+    <ex:hasAge_categorization rdf:resource="http://example.org/TV-14"/>
+    <ex:hasAge_categorization>TV-14</ex:hasAge_categorization>
+    <ex:title>Zubaan</ex:title>
+    <ex:hasId>s8807</ex:hasId>
+    <ex:hasDescription>['A', 'scrappy', 'but', 'poor', 'boy', 'worms', 'his', 'way', 'into', 'a', "tycoon's", 'dysfunctional', 'family,', 'while', 'facing', 'his', 'fear', 'of', 'music', 'and', 'the', 'truth', 'about', 'his', 'past.']</ex:hasDescription>
+    <ex:releasedIn>2015</ex:releasedIn>
+    <ex:hasDurationInMin rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">111</ex:hasDurationInMin>
+    <ex:casting rdf:resource="http://example.org/Vicky_Kaushal"/>
+    <ex:casting>VickyKaushal</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Sarah-Jane_Dias"/>
+    <ex:casting>Sarah-JaneDias</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Raaghav_Chanana"/>
+    <ex:casting>RaaghavChanana</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Manish_Chaudhary"/>
+    <ex:casting>ManishChaudhary</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Meghna_Malik"/>
+    <ex:casting>MeghnaMalik</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Malkeet_Rauni"/>
+    <ex:casting>MalkeetRauni</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Anita_Shabdish"/>
+    <ex:casting>AnitaShabdish</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Chittaranjan_Tripathy"/>
+    <ex:casting>ChittaranjanTripathy</ex:casting>
+    <ex:directedBy rdf:resource="http://example.org/Mozez_Singh"/>
+    <ex:directedBy>MozezSingh</ex:directedBy>
+    <ex:listed_in rdf:resource="http://example.org/Dramas"/>
+    <ex:listed_in>Dramas</ex:listed_in>
+    <ex:listed_in rdf:resource="http://example.org/_International_Movies"/>
+    <ex:listed_in>InternationalMovies</ex:listed_in>
+    <ex:listed_in rdf:resource="http://example.org/_Music_&amp;_Musicals"/>
+    <ex:listed_in>Music&amp;Musicals</ex:listed_in>
+    <ex:producedIn rdf:resource="http://example.org/India"/>
+    <ex:producedIn>India</ex:producedIn>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/hasAge_categorization">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Media"/>
+    <rdfs:range rdf:resource="http://example.org/Age_category"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Movie">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/Media"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Korean_TV_Shows">
+    <rdf:type rdf:resource="http://example.org/Genre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Zinzana/Movie">
+    <rdf:type rdf:resource="http://example.org/Media"/>
+    <rdf:type rdf:resource="http://example.org/Movie"/>
+    <ex:added_in rdf:resource="http://example.org/Zinzana/March_9,_2016"/>
+    <ex:added_in>March_9,_2016</ex:added_in>
+    <ex:hasAge_categorization rdf:resource="http://example.org/TV-MA"/>
+    <ex:hasAge_categorization>TV-MA</ex:hasAge_categorization>
+    <ex:title>Zinzana</ex:title>
+    <ex:hasId>s8802</ex:hasId>
+    <ex:hasDescription>['Recovering', 'alcoholic', 'Talal', 'wakes', 'up', 'inside', 'a', 'small-town', 'police', 'station', 'cell,', 'where', "he's", 'subject', 'to', 'themind', 'games', 'of', 'a', 'psychotic', 'sadist.']</ex:hasDescription>
+    <ex:releasedIn>2015</ex:releasedIn>
+    <ex:hasDurationInMin rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">96</ex:hasDurationInMin>
+    <ex:casting rdf:resource="http://example.org/Ali_Suliman"/>
+    <ex:casting>AliSuliman</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Saleh_Bakri"/>
+    <ex:casting>SalehBakri</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Yasa"/>
+    <ex:casting>Yasa</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Ali_Al-Jabri"/>
+    <ex:casting>AliAl-Jabri</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Mansoor_Alfeeli"/>
+    <ex:casting>MansoorAlfeeli</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Ahd"/>
+    <ex:casting>Ahd</ex:casting>
+    <ex:directedBy rdf:resource="http://example.org/Majid_Al_Ansari"/>
+    <ex:directedBy>MajidAlAnsari</ex:directedBy>
+    <ex:listed_in rdf:resource="http://example.org/Dramas"/>
+    <ex:listed_in>Dramas</ex:listed_in>
+    <ex:listed_in rdf:resource="http://example.org/_International_Movies"/>
+    <ex:listed_in>InternationalMovies</ex:listed_in>
+    <ex:listed_in rdf:resource="http://example.org/_Thrillers"/>
+    <ex:listed_in>Thrillers</ex:listed_in>
+    <ex:producedIn rdf:resource="http://example.org/United_Arab_Emirates"/>
+    <ex:producedIn>UnitedArabEmirates</ex:producedIn>
+    <ex:producedIn rdf:resource="http://example.org/_Jordan"/>
+    <ex:producedIn>Jordan</ex:producedIn>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Anita_Shabdish">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/hasDuration">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Media"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Ruben_Fleischer">
+    <rdf:type rdf:resource="http://example.org/Director"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/figuresIn">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Actors"/>
+    <rdfs:range rdf:resource="http://example.org/Media"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ZombieDumb/TV_Show">
+    <rdf:type rdf:resource="http://example.org/Media"/>
+    <rdf:type rdf:resource="http://example.org/TV_show"/>
+    <ex:added_in rdf:resource="http://example.org/ZombieDumb/July_1,_2019"/>
+    <ex:added_in>July_1,_2019</ex:added_in>
+    <ex:releasedIn>2018</ex:releasedIn>
+    <ex:hasAge_categorization rdf:resource="http://example.org/TV-Y7"/>
+    <ex:hasAge_categorization>TV-Y7</ex:hasAge_categorization>
+    <ex:title>Zombie Dumb</ex:title>
+    <ex:hasId>s8804</ex:hasId>
+    <ex:hasDescription>['While', 'living', 'alone', 'in', 'a', 'spooky', 'town,', 'a', 'young', 'girl', 'befriends', 'a', 'motley', 'crew', 'of', 'zombie', 'children', 'with', 'diverse', 'personalities.']</ex:hasDescription>
+    <ex:hasDuration>2_Seasons</ex:hasDuration>
+    <ex:casting rdf:resource="http://example.org/Unknown"/>
+    <ex:casting>Unknown</ex:casting>
+    <ex:directedBy rdf:resource="http://example.org/Unknown"/>
+    <ex:directedBy>Unknown</ex:directedBy>
+    <ex:listed_in rdf:resource="http://example.org/Kids'_TV"/>
+    <ex:listed_in>Kids'TV</ex:listed_in>
+    <ex:listed_in rdf:resource="http://example.org/_Korean_TV_Shows"/>
+    <ex:listed_in>KoreanTVShows</ex:listed_in>
+    <ex:listed_in rdf:resource="http://example.org/_TV_Comedies"/>
+    <ex:listed_in>TVComedies</ex:listed_in>
+    <ex:producedIn rdf:resource="http://example.org/Unknown"/>
+    <ex:producedIn>Unknown</ex:producedIn>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Saleh_Bakri">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zinzana/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Tim_Allen">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Brian_Cox">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/casting">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <owl:inverseOf rdf:resource="http://example.org/figuresIn"/>
+    <rdfs:domain rdf:resource="http://example.org/Media"/>
+    <rdfs:range rdf:resource="http://example.org/Actors"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Children_&amp;_Family_Movies">
+    <rdf:type rdf:resource="http://example.org/Genre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Ali_Suliman">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zinzana/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/hasId">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Media"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/PG">
+    <rdf:type rdf:resource="http://example.org/Age_category"/>
+    <ex:occursIn rdf:resource="http://example.org/Zoom/Movie"/>
+    <ex:occursIn>Zoom</ex:occursIn>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/TV_show">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/Media"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://example.org/_Chloë_Sevigny">
     <rdf:type rdf:resource="http://example.org/Actors"/>
     <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_TV_Comedies">
-    <rdf:type rdf:resource="http://example.org/Genre"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/India">
-    <rdf:type rdf:resource="http://example.org/Country"/>
+  <rdf:Description rdf:about="http://example.org/Genre">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/TV-MA">
     <rdf:type rdf:resource="http://example.org/Age_category"/>
@@ -337,292 +317,77 @@
     <ex:occursIn rdf:resource="http://example.org/ZombieDumb/TV_Show"/>
     <ex:occursIn>Zombie Dumb</ex:occursIn>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/United_States">
-    <rdf:type rdf:resource="http://example.org/Country"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Dramas">
-    <rdf:type rdf:resource="http://example.org/Genre"/>
+  <rdf:Description rdf:about="http://example.org/_Woody_Harrelson">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/_Meghna_Malik">
     <rdf:type rdf:resource="http://example.org/Actors"/>
     <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Kevin_Zegers">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Anita_Shabdish">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Emma_Stone">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/figuresIn">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://example.org/Actors"/>
-    <rdfs:range rdf:resource="http://example.org/Media"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Zodiac/November_20,_2019">
-    <rdf:type rdf:resource="http://example.org/Date"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Dermot_Mulroney">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/TV-PG">
-    <rdf:type rdf:resource="http://example.org/Age_category"/>
-    <ex:occursIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
-    <ex:occursIn>Zindagi Gulzar Hai</ex:occursIn>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Rip_Torn">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Ali_Suliman">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zinzana/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Yasa">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zinzana/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/hasId">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://example.org/Media"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/David_Fincher">
+  <rdf:Description rdf:about="http://example.org/Unknown">
     <rdf:type rdf:resource="http://example.org/Director"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Saleh_Bakri">
     <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zinzana/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/hasDuration(Min)">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://example.org/Media"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Jake_Gyllenhaal">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Donal_Logue">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/added_in">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://example.org/Media"/>
-    <rdfs:range rdf:resource="http://example.org/Date"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Bill_Murray">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Amber_Heard">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/title">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://example.org/Media"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/TV-14">
-    <rdf:type rdf:resource="http://example.org/Age_category"/>
-    <ex:occursIn rdf:resource="http://example.org/Zubaan/Movie"/>
-    <ex:occursIn>Zubaan</ex:occursIn>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Malkeet_Rauni">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Abigail_Breslin">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Chevy_Chase">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Brian_Cox">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Ayesha_Omer">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Majid_Al_Ansari">
-    <rdf:type rdf:resource="http://example.org/Director"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/hasDuration">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://example.org/Media"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Peter_Hewitt">
-    <rdf:type rdf:resource="http://example.org/Director"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Derek_Graf">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Elias_Koteas">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Sanam_Saeed">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Ryan_Newman">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/releasedIn">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://example.org/Media"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/directedBy">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://example.org/Media"/>
-    <rdfs:range rdf:resource="http://example.org/Director"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Kate_Mara">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Raaghav_Chanana">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ZombieDumb/July_1,_2019">
-    <rdf:type rdf:resource="http://example.org/Date"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Michael_Cassidy">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Music_&amp;_Musicals">
-    <rdf:type rdf:resource="http://example.org/Genre"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/United_Arab_Emirates">
     <rdf:type rdf:resource="http://example.org/Country"/>
+    <ex:figuresIn rdf:resource="http://example.org/ZombieDumb/TV_Show"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Director">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/Person"/>
+  <rdf:Description rdf:about="http://example.org/Zoom/Movie">
+    <rdf:type rdf:resource="http://example.org/Media"/>
+    <rdf:type rdf:resource="http://example.org/Movie"/>
+    <ex:added_in rdf:resource="http://example.org/Zoom/January_11,_2020"/>
+    <ex:added_in>January_11,_2020</ex:added_in>
+    <ex:hasAge_categorization rdf:resource="http://example.org/PG"/>
+    <ex:hasAge_categorization>PG</ex:hasAge_categorization>
+    <ex:title>Zoom</ex:title>
+    <ex:hasId>s8806</ex:hasId>
+    <ex:hasDescription>['Dragged', 'from', 'civilian', 'life,', 'a', 'former', 'superhero', 'must', 'train', 'a', 'new', 'crop', 'of', 'youthful', 'saviors', 'when', 'the', 'military', 'preps', 'for', 'an', 'attack', 'by', 'a', 'familiar', 'villain.']</ex:hasDescription>
+    <ex:releasedIn>2006</ex:releasedIn>
+    <ex:hasDurationInMin rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">88</ex:hasDurationInMin>
+    <ex:casting rdf:resource="http://example.org/Tim_Allen"/>
+    <ex:casting>TimAllen</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Courteney_Cox"/>
+    <ex:casting>CourteneyCox</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Chevy_Chase"/>
+    <ex:casting>ChevyChase</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Kate_Mara"/>
+    <ex:casting>KateMara</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Ryan_Newman"/>
+    <ex:casting>RyanNewman</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Michael_Cassidy"/>
+    <ex:casting>MichaelCassidy</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Spencer_Breslin"/>
+    <ex:casting>SpencerBreslin</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Rip_Torn"/>
+    <ex:casting>RipTorn</ex:casting>
+    <ex:casting rdf:resource="http://example.org/_Kevin_Zegers"/>
+    <ex:casting>KevinZegers</ex:casting>
+    <ex:directedBy rdf:resource="http://example.org/Peter_Hewitt"/>
+    <ex:directedBy>PeterHewitt</ex:directedBy>
+    <ex:listed_in rdf:resource="http://example.org/Children_&amp;_Family_Movies"/>
+    <ex:listed_in>Children&amp;FamilyMovies</ex:listed_in>
+    <ex:listed_in rdf:resource="http://example.org/_Comedies"/>
+    <ex:listed_in>Comedies</ex:listed_in>
+    <ex:producedIn rdf:resource="http://example.org/United_States"/>
+    <ex:producedIn>UnitedStates</ex:producedIn>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Country">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Sarah-Jane_Dias">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/occursIn">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://example.org/Age_category"/>
-    <rdfs:range rdf:resource="http://example.org/Media"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/producedIn">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://example.org/Media"/>
-    <rdfs:range rdf:resource="http://example.org/Country"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_John_Carroll_Lynch">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/hasDescription">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://example.org/Media"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Samina_Peerzada">
+  <rdf:Description rdf:about="http://example.org/_Sheheryar_Munawar">
     <rdf:type rdf:resource="http://example.org/Actors"/>
     <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Horror_Movies">
-    <rdf:type rdf:resource="http://example.org/Genre"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Tim_Allen">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Jesse_Eisenberg">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Mansoor_Alfeeli">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zinzana/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Movie">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/Media"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Woody_Harrelson">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/_Spencer_Breslin">
     <rdf:type rdf:resource="http://example.org/Actors"/>
     <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Children_&amp;_Family_Movies">
-    <rdf:type rdf:resource="http://example.org/Genre"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Cult_Movies">
-    <rdf:type rdf:resource="http://example.org/Genre"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Hina_Khawaja_Bayat">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Romantic_TV_Shows">
-    <rdf:type rdf:resource="http://example.org/Genre"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/listed_in">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://example.org/Media"/>
-    <rdfs:range rdf:resource="http://example.org/Genre"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Genre">
+  <rdf:Description rdf:about="http://example.org/Country">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Thrillers">
-    <rdf:type rdf:resource="http://example.org/Genre"/>
+  <rdf:Description rdf:about="http://example.org/United_Arab_Emirates">
+    <rdf:type rdf:resource="http://example.org/Country"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Zinzana/March_9,_2016">
-    <rdf:type rdf:resource="http://example.org/Date"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Courteney_Cox">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Chittaranjan_Tripathy">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Comedies">
-    <rdf:type rdf:resource="http://example.org/Genre"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Zombieland/November_1,_2019">
-    <rdf:type rdf:resource="http://example.org/Date"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Age_category">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/hasAge_categorization">
+  <rdf:Description rdf:about="http://example.org/releasedIn">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:domain rdf:resource="http://example.org/Media"/>
-    <rdfs:range rdf:resource="http://example.org/Age_category"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/R">
     <rdf:type rdf:resource="http://example.org/Age_category"/>
@@ -631,75 +396,310 @@
     <ex:occursIn rdf:resource="http://example.org/Zombieland/Movie"/>
     <ex:occursIn>Zombieland</ex:occursIn>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Manish_Chaudhary">
+  <rdf:Description rdf:about="http://example.org/_Abigail_Breslin">
     <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_TV_Dramas">
+  <rdf:Description rdf:about="http://example.org/_Ahd">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zinzana/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ZombieDumb/July_1,_2019">
+    <rdf:type rdf:resource="http://example.org/Date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/title">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Media"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Mark_Ruffalo">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Bill_Murray">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Mansoor_Alfeeli">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zinzana/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/David_Fincher">
+    <rdf:type rdf:resource="http://example.org/Director"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/United_States">
+    <rdf:type rdf:resource="http://example.org/Country"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Javed_Sheikh">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Comedies">
     <rdf:type rdf:resource="http://example.org/Genre"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Person">
+  <rdf:Description rdf:about="http://example.org/Date">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/Actors">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdfs:subClassOf rdf:resource="http://example.org/Person"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Media">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  <rdf:Description rdf:about="http://example.org/_Chevy_Chase">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/TV_show">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/Media"/>
+  <rdf:Description rdf:about="http://example.org/_Jake_Gyllenhaal">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Yasa">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zinzana/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Michael_Cassidy">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/hasDescription">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Media"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Manish_Chaudhary">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Robert_Downey_Jr.">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/hasDurationInMin">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Media"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Ayesha_Omer">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Anthony_Edwards">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/Pakistan">
     <rdf:type rdf:resource="http://example.org/Country"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Fawad_Khan">
+  <rdf:Description rdf:about="http://example.org/_Raaghav_Chanana">
     <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Mehreen_Raheel">
+  <rdf:Description rdf:about="http://example.org/added_in">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Media"/>
+    <rdfs:range rdf:resource="http://example.org/Date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Malkeet_Rauni">
     <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_International_Movies">
+  <rdf:Description rdf:about="http://example.org/_Amber_Heard">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Donal_Logue">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/International_TV_Shows">
     <rdf:type rdf:resource="http://example.org/Genre"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Dramas">
-    <rdf:type rdf:resource="http://example.org/Genre"/>
+  <rdf:Description rdf:about="http://example.org/_Kevin_Zegers">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Elias_Koteas">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Emma_Stone">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/occursIn">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Age_category"/>
+    <rdfs:range rdf:resource="http://example.org/Media"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/_Ali_Al-Jabri">
     <rdf:type rdf:resource="http://example.org/Actors"/>
     <ex:figuresIn rdf:resource="http://example.org/Zinzana/Movie"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Zoom/January_11,_2020">
-    <rdf:type rdf:resource="http://example.org/Date"/>
+  <rdf:Description rdf:about="http://example.org/listed_in">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Media"/>
+    <rdfs:range rdf:resource="http://example.org/Genre"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ZindagiGulzarHai/December_15,_2016">
-    <rdf:type rdf:resource="http://example.org/Date"/>
+  <rdf:Description rdf:about="http://example.org/Majid_Al_Ansari">
+    <rdf:type rdf:resource="http://example.org/Director"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Javed_Sheikh">
+  <rdf:Description rdf:about="http://example.org/TV-14">
+    <rdf:type rdf:resource="http://example.org/Age_category"/>
+    <ex:occursIn rdf:resource="http://example.org/Zubaan/Movie"/>
+    <ex:occursIn>Zubaan</ex:occursIn>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Kate_Mara">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/TV-PG">
+    <rdf:type rdf:resource="http://example.org/Age_category"/>
+    <ex:occursIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
+    <ex:occursIn>Zindagi Gulzar Hai</ex:occursIn>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/producedIn">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Media"/>
+    <rdfs:range rdf:resource="http://example.org/Country"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Samina_Peerzada">
     <rdf:type rdf:resource="http://example.org/Actors"/>
     <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Ruben_Fleischer">
-    <rdf:type rdf:resource="http://example.org/Director"/>
+  <rdf:Description rdf:about="http://example.org/Media">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Rip_Torn">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Courteney_Cox">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Jordan">
+    <rdf:type rdf:resource="http://example.org/Country"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_John_Carroll_Lynch">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Dramas">
+    <rdf:type rdf:resource="http://example.org/Genre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Jesse_Eisenberg">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Derek_Graf">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zombieland/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Cult_Movies">
+    <rdf:type rdf:resource="http://example.org/Genre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/directedBy">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Media"/>
+    <rdfs:range rdf:resource="http://example.org/Director"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Thrillers">
+    <rdf:type rdf:resource="http://example.org/Genre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Vicky_Kaushal">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Chittaranjan_Tripathy">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zubaan/Movie"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/Mozez_Singh">
     <rdf:type rdf:resource="http://example.org/Director"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Mehreen_Raheel">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Waseem_Abbas">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Zombieland/November_1,_2019">
+    <rdf:type rdf:resource="http://example.org/Date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Director">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/Person"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://example.org/Zubaan/March_2,_2019">
     <rdf:type rdf:resource="http://example.org/Date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Ryan_Newman">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zoom/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Sanam_Saeed">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Zoom/January_11,_2020">
+    <rdf:type rdf:resource="http://example.org/Date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Hina_Khawaja_Bayat">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Dermot_Mulroney">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/Zodiac/Movie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Person">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Fawad_Khan">
+    <rdf:type rdf:resource="http://example.org/Actors"/>
+    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Zinzana/March_9,_2016">
+    <rdf:type rdf:resource="http://example.org/Date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Romantic_TV_Shows">
+    <rdf:type rdf:resource="http://example.org/Genre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_TV_Comedies">
+    <rdf:type rdf:resource="http://example.org/Genre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ZindagiGulzarHai/December_15,_2016">
+    <rdf:type rdf:resource="http://example.org/Date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Horror_Movies">
+    <rdf:type rdf:resource="http://example.org/Genre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Zodiac/November_20,_2019">
+    <rdf:type rdf:resource="http://example.org/Date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_TV_Dramas">
+    <rdf:type rdf:resource="http://example.org/Genre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_International_Movies">
+    <rdf:type rdf:resource="http://example.org/Genre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Age_category">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/Comedies">
+    <rdf:type rdf:resource="http://example.org/Genre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/_Music_&amp;_Musicals">
+    <rdf:type rdf:resource="http://example.org/Genre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/India">
+    <rdf:type rdf:resource="http://example.org/Country"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/Kids'_TV">
     <rdf:type rdf:resource="http://example.org/Genre"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/_Sheheryar_Munawar">
-    <rdf:type rdf:resource="http://example.org/Actors"/>
-    <ex:figuresIn rdf:resource="http://example.org/ZindagiGulzarHai/TV_Show"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/Date">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  <rdf:Description rdf:about="http://example.org/Peter_Hewitt">
+    <rdf:type rdf:resource="http://example.org/Director"/>
   </rdf:Description>
 </rdf:RDF>

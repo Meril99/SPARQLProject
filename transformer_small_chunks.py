@@ -17,7 +17,6 @@ def split_dataframe(df, chunk_size):
 
 
 def csv_to_rdf(df, rdf_file_name):
-    # Your existing code here, but without the line that reads the CSV file
     # some preprocessing if needed
     df["cast"].str.split(",")
     df['listed_in'].str.split(",")
