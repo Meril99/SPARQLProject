@@ -228,9 +228,12 @@ def csv_to_rdf(csv_path, rdf_file_name):
 
         # If the media is a movie :
         if row['type'] == "Movie":
+
             mediatype = row['type']
             # create a movie uri
             movie_uri = rdflib.URIRef(f"{schema}{titre}/{mediatype}")
+            g.add((movie_uri, name, Literal(titre)))
+
             # Add triplets
             g.add((movie_uri, RDF.type, Movie))
 
@@ -329,7 +332,10 @@ def csv_to_rdf(csv_path, rdf_file_name):
 
         # if the media is a tv-show
         else:
+
             tv_show_uri = rdflib.URIRef(f"{schema}{titre}/{row['type']}")
+            g.add((tv_show_uri, name, Literal(titre)))
+
             # Add triplets
             g.add((tv_show_uri, RDF.type, TV_show))
 
