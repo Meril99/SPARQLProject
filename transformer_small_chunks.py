@@ -17,8 +17,6 @@ def split_dataframe(df, chunk_size):
 
 
 def csv_to_rdf(df, rdf_file_name):
-
-
     """ """"""""""""""""""""""""""""""""""Prepreocessing"""""""""""""""""""""""""""""""""""""
 
     # split rows that contain multiple values
@@ -33,7 +31,8 @@ def csv_to_rdf(df, rdf_file_name):
     # Put everything in CamelCase and remove " "
     df.country = df.country.str.replace(" ", "")
     df.director = df.director.str.replace(" ", "")
-    df.cast =df.cast.str.replace(" ", "")
+    df.cast = df.cast.str.replace(" ", "")
+    df.duration = df.duration.str.replace(" ", "")
     df['cast'] = df['cast'].apply(lambda actor: re.sub('\"[^\"]*\"', '', actor))
     df.listed_in = df.listed_in.str.replace(" ", "")
     df['title'] = df['title'].str.replace(' ', '').str.replace('\"', '')
@@ -55,45 +54,47 @@ def csv_to_rdf(df, rdf_file_name):
     TV_show = schema['TV_show']
     Movie = schema['Movie']
     Person = schema['Person']
-    Actors = schema['Actors']
+    Actor = schema['Actors']
     Country = schema['Country']
     Genre = schema['Genre']
     AgeLimit = schema['Age_category']
-    Directeur = schema['Director']
+    Director = schema['Director']
+    Job = schema['Job']
 
     # Create classes
-    #Media
+    # Job
+    g.add((Job, RDF.type, RDFS.Class))
+
+    # Media
     g.add((Media, RDF.type, RDFS.Class))
 
-    #TV_Show
+    # TV_Show
     g.add((TV_show, RDF.type, RDFS.Class))
     g.add((TV_show, RDFS.subClassOf, Media))
 
-    #Movie
+    # Movie
     g.add((Movie, RDF.type, RDFS.Class))
     g.add((Movie, RDFS.subClassOf, Media))
 
-    #Person
+    # Person
     g.add((Person, RDF.type, RDFS.Class))
 
-    #Actors
-    g.add((Actors, RDF.type, RDFS.Class))
-    g.add((Actors, RDFS.subClassOf, Person))
+    # Actors
+    g.add((Actor, RDF.type, RDFS.Class))
+    g.add((Actor, RDFS.subClassOf, Job))
 
-    #Directeur
-    g.add((Directeur, RDF.type, RDFS.Class))
-    g.add((Directeur, RDFS.subClassOf, Person))
+    # Directeur
+    g.add((Director, RDF.type, RDFS.Class))
+    g.add((Director, RDFS.subClassOf, Job))
 
-    #Country
+    # Country
     g.add((Country, RDF.type, RDFS.Class))
 
-    #Genre
+    # Genre
     g.add((Genre, RDF.type, RDFS.Class))
 
-    #Age_Limit
+    # Age_Limit
     g.add((AgeLimit, RDF.type, RDFS.Class))
-
-
 
     """""""""""""""""""""""""""""""Properties"""""""""""""""""""""""""""""""""""""""""""
 
@@ -105,48 +106,41 @@ def csv_to_rdf(df, rdf_file_name):
     producedIn = schema['producedIn']
     addedOnNetflixIn = schema['addedOnNetflixIn']
     duration = schema['hasDuration']
-    durationInMin = schema['hasDuration_InMin']
+    durationInMin = schema['hasDurationInMin']
     hasGenre = schema['hasGenre']
     description = schema['hasDescription']
-    ageLimitedTo = schema['hasAge_categorization']
-    name = schema['title']
+    ageLimitedTo = schema['ageLimitedTo']
+    title = schema['title']
     releaseYear = schema['releasedIn']
-    #inverse of age_limit
+    # inverse of age_limit
     isAgeLimitationOf = schema['isAgeLimitationFor']
-    #inverse of produced
+    # inverse of produced
     location_of = schema['isLocationOf']
-    #inverseOfduration
-    durationOf=schema['isDurationOf']
-    #inverseOfGenre
-    isGenreOf=schema['isGenreOf']
-    #inverseOf directedBY
-    isDirectorOf=schema['isDirectorOf']
-
+    # inverseOfduration
+    durationOf = schema['isDurationOf']
+    # inverseOfGenre
+    isGenreOf = schema['isGenreOf']
+    # inverseOf directedBY
+    isDirectorOf = schema['isDirectorOf']
+    jobTitle = schema['jobTitle']
+    isJobTitleOf = schema['isJobTitleOf']
 
     # create the properties and spoecify domain + range (id)
-    #An id is unique, that's why it is a functional Property
+    # An id is unique, that's why it is a functional Property
     g.add(((hasId, RDF.type, RDF.Property)))
     g.add((hasId, RDFS.domain, Media))
     g.add((hasId, RDFS.range, XSD.string))
     g.add((hasId, RDF.type, OWL.FunctionalProperty))
 
     # name
-    g.add((name, RDF.type, RDF.Property))
-    g.add((name, RDFS.domain, Media))
-    g.add((name, RDFS.range, XSD.string))
-
-
-    g.add((name, RDFS.domain, Movie))
-    g.add((name, RDFS.range, XSD.string))
-
-    g.add((name, RDFS.domain, TV_show))
-    g.add((name, RDFS.range, XSD.string))
-
+    g.add((title, RDF.type, RDF.Property))
+    g.add((title, RDFS.domain, Media))
+    g.add((title, RDFS.range, XSD.string))
 
     # directedBy
     g.add((directedBy, RDF.type, RDF.Property))
     g.add((directedBy, RDFS.domain, Media))
-    g.add((directedBy, RDFS.range, Directeur))
+    g.add((directedBy, RDFS.range, Person))
 
     # duration
     g.add((duration, RDF.type, RDF.Property))
@@ -170,14 +164,14 @@ def csv_to_rdf(df, rdf_file_name):
 
     # figuresIn (which actor figures in the media)
     g.add((figuresIn, RDF.type, RDF.Property))
-    g.add((figuresIn, RDFS.domain, Actors))
+    g.add((figuresIn, RDFS.domain, Person))
     g.add((figuresIn, RDFS.range, Media))
 
     # casting ( inverse of figuresIn)
     g.add((containsActorNamed, RDF.type, RDF.Property))
     g.add((containsActorNamed, OWL.inverseOf, figuresIn))
     g.add((containsActorNamed, RDFS.domain, Media))
-    g.add((containsActorNamed, RDFS.range, Actors))
+    g.add((containsActorNamed, RDFS.range, Person))
 
     # age_limit
     g.add((ageLimitedTo, RDF.type, RDF.Property))
@@ -205,20 +199,19 @@ def csv_to_rdf(df, rdf_file_name):
     g.add((isAgeLimitationOf, RDFS.domain, AgeLimit))
     g.add((isAgeLimitationOf, RDFS.range, Media))
 
-    #locationOf
+    # locationOf
     g.add((location_of, RDF.type, RDF.Property))
     g.add((location_of, OWL.inverseOf, producedIn))
     g.add((location_of, RDFS.domain, Country))
-    g.add((isAgeLimitationOf, RDFS.range, Media))
+    g.add((location_of, RDFS.range, Media))
 
-
-    #durartionOf
+    # durartionOf
     g.add((durationOf, RDF.type, RDF.Property))
     g.add((durationOf, OWL.inverseOf, duration))
     g.add((durationOf, RDFS.domain, XSD.string))
     g.add((durationOf, RDFS.range, Media))
 
-    #isGenreOf
+    # isGenreOf
     g.add((isGenreOf, RDF.type, RDF.Property))
     g.add((isGenreOf, OWL.inverseOf, hasGenre))
     g.add((isGenreOf, RDFS.domain, Genre))
@@ -227,20 +220,33 @@ def csv_to_rdf(df, rdf_file_name):
     # isDirectorOf
     g.add((isDirectorOf, RDF.type, RDF.Property))
     g.add((isDirectorOf, OWL.inverseOf, directedBy))
-    g.add((isDirectorOf, RDFS.domain, Directeur))
+    g.add((isDirectorOf, RDFS.domain, Person))
     g.add((isDirectorOf, RDFS.range, Media))
+
+    # jobTitle
+    g.add((jobTitle, RDF.type, RDF.Property))
+    g.add((jobTitle, RDFS.domain, Person))
+    g.add((jobTitle, RDFS.range, Director))
+    g.add((jobTitle, RDFS.range, Actor))
+
+    # isJobTitleOf
+    g.add((isJobTitleOf, RDF.type, RDF.Property))
+    g.add((isJobTitleOf, OWL.inverseOf, jobTitle))
+    g.add((isJobTitleOf, RDFS.domain, Director))
+    g.add((isJobTitleOf, RDFS.domain, Actor))
+    g.add((isJobTitleOf, RDFS.range, Person))
 
     """----------------------Triplets--------------------------------"""
     # Create triples for each row in dataframe
     for _, row in df.iterrows():
 
-        titre=row['title']
+        titre = row['title']
 
         # media_uri
         media_uri = rdflib.URIRef(f"{schema}{titre}/{row['type']}")
         g.add((media_uri, RDF.type, Media))
-	    #title
-        g.add((media_uri, name, Literal(titre)))
+        # title
+        g.add((media_uri, title, Literal(titre)))
 
         # If the media is a movie :
         if row['type'] == "Movie":
@@ -248,27 +254,18 @@ def csv_to_rdf(df, rdf_file_name):
             mediatype = row['type']
             # create a movie uri
             movie_uri = rdflib.URIRef(f"{schema}{titre}/{mediatype}")
-            g.add((movie_uri, name, Literal(titre)))
-
-            # Add triplets
+            # Add the uri to the graph
             g.add((movie_uri, RDF.type, Movie))
+            # We still add the media type as an rdfs:label with language tag "en" to use the full power of RDF GRapohs
+            g.add((movie_uri, RDFS.label, Literal(titre, lang='en')))
+
+            """----------------------Data properties---------------------------------"""
 
             # Date where the movie got added on Netflix
             g.add((movie_uri, addedOnNetflixIn, Literal(row['date_added'])))
 
-
-            # age limit triplets
-            age_restriction = row['rating']
-            age_restriction_uri = rdflib.URIRef(f"{schema}{age_restriction}")
-            g.add((age_restriction_uri, RDF.type, AgeLimit))
-            g.add((movie_uri, ageLimitedTo, age_restriction_uri))
-            g.add((movie_uri, ageLimitedTo, Literal(row['rating'])))
-            #inverse
-            g.add((age_restriction_uri, isAgeLimitationOf, movie_uri))
-            g.add((age_restriction_uri, isAgeLimitationOf, Literal(row['title'])))
-
-            # title triplets
-            g.add((movie_uri, name, Literal(row['title'].replace('_', ''))))
+            # this will allow us to display clean answers to our requests but is not necessary since we got a labeled movie_uri
+            g.add((movie_uri, title, Literal(titre)))
 
             # id triplets
             g.add((movie_uri, hasId, Literal(row['show_id'])))
@@ -280,80 +277,104 @@ def csv_to_rdf(df, rdf_file_name):
             g.add((movie_uri, releaseYear, Literal(row['release_year'])))
 
             # duration in minutes
-            duree = row['duration'].replace(" ", "_")
+            duree = row['duration']
             if "min" in row['duration']:
                 literal_duration = Literal(int(duree.replace("min", "")))
                 g.add((movie_uri, durationInMin, literal_duration))
                 # inverse
                 g.add((literal_duration, durationOf, movie_uri))
-            #duration with no minutes
+            # duration with no minutes
             else:
-                literal_duration = Literal(duree.replace(" ", "_"))
-                g.add((movie_uri, duration, literal_duration))
+                g.add((movie_uri, duration, duree))
                 # inverse
-                g.add((literal_duration, durationOf, movie_uri))
+                g.add((duree, durationOf, movie_uri))
 
-            # Add triplet for casting, director, and Genres
+                """----------------------Entities relationships---------------------------------"""
+
+                # Add triplet for casting, director, and Genres, age limit
+                # age limit triplets
+                age_restriction = row['rating']
+                # creating the uri and add it to the graph
+                age_restriction_uri = rdflib.URIRef(f"{schema}{age_restriction}")
+                g.add((age_restriction_uri, RDF.type, AgeLimit))
+                # create a triplet
+                g.add((movie_uri, ageLimitedTo, age_restriction_uri))
+                g.add((age_restriction_uri, RDFS.label, Literal(row['rating'], lang='en')))
+                # inverse
+                g.add((age_restriction_uri, isAgeLimitationOf, movie_uri))
+
+            # Actors
             for cast_member in row['cast'].split(','):
                 # Person_uri creation
                 person_uri = rdflib.URIRef(f"{schema}{cast_member}")
+                # add uri to the graph
                 g.add((person_uri, RDF.type, Person))
+                # a Person has a Name
+                g.add((person_uri, RDFS.label, Literal(cast_member, lang='en')))
                 # Create URI for actors
                 actors_uri = rdflib.URIRef(f"{schema}{cast_member}")
-                # add tyhe triplets
-                g.add((actors_uri, RDF.type, Actors))
-                g.add((movie_uri, containsActorNamed, actors_uri))
-                g.add((movie_uri, containsActorNamed, Literal(cast_member)))
-                g.add((actors_uri, figuresIn, movie_uri))
-                g.add((Literal(cast_member), figuresIn, media_uri))
-
+                # add the actors uri to the graph
+                g.add((actors_uri, RDF.type, Actor))
+                g.add((actors_uri, RDFS.label, Literal("Actor", lang='en')))
+                # construct the relationships : a media contains named people that work as actors
+                g.add((movie_uri, containsActorNamed, person_uri))
+                # inverse
+                g.add((person_uri, figuresIn, movie_uri))
+                # second relationship: a person works as an actor
+                g.add((person_uri, jobTitle, actors_uri))
+                # inverse
+                g.add((actors_uri, isJobTitleOf, person_uri))
 
             for director in row['director'].split(','):
                 # Person_uri creation
                 person_uri = rdflib.URIRef(f"{schema}{director}")
+                # add uri to the graph
                 g.add((person_uri, RDF.type, Person))
+                # a Person has a Name
+                g.add((person_uri, RDFS.label, Literal(director, lang='en')))
                 # Create URI for directors
-                dir_uri = rdflib.URIRef(f"{schema}{director}")
-                g.add((dir_uri, RDF.type, Directeur))
-                g.add((movie_uri, directedBy, dir_uri))
-                g.add((movie_uri, directedBy, Literal(director)))
-                #inverse
-                g.add((dir_uri, isDirectorOf, movie_uri ))
-                g.add((Literal(director), isDirectorOf, movie_uri ))
-
-
-
-
+                director_uri = rdflib.URIRef(f"{schema}{director}")
+                # add the directors uri to the graph
+                g.add((director_uri, RDF.type, Director))
+                g.add((director_uri, RDFS.label, Literal("Director", lang='en')))
+                # construct the relationships : a media contains named people that work as directors
+                g.add((movie_uri, directedBy, person_uri))
+                # inverse
+                g.add((person_uri, isDirectorOf, movie_uri))
+                # second relationship: a person works as an actor
+                g.add((person_uri, jobTitle, director_uri))
+                # inverse
+                g.add((director_uri, isJobTitleOf, person_uri))
 
             for genre in row['listed_in'].split(','):
                 # Create URI for genre
                 genre_uri = rdflib.URIRef(f"{schema}{genre}")
                 g.add((genre_uri, RDF.type, Genre))
                 g.add((movie_uri, hasGenre, genre_uri))
-                g.add((movie_uri, hasGenre, Literal(genre)))
-                #inverse
+                g.add((genre_uri, RDFS.label, Literal(genre, lang='en')))
+                # inverse
                 g.add((genre_uri, isGenreOf, movie_uri))
-                g.add((Literal(genre), isGenreOf, movie_uri))
-
 
             for country in row['country'].split(','):
                 country_uri = rdflib.URIRef(f"{schema}{country}")
                 g.add((country_uri, RDF.type, Country))
                 g.add((movie_uri, producedIn, country_uri))
-                g.add((movie_uri, producedIn, Literal(country)))
-                #inverse
+                g.add((country_uri, RDFS.label, Literal(country, lang='en')))
+                # inverse
                 g.add((country_uri, location_of, movie_uri))
-                g.add((Literal(country), location_of, movie_uri))
 
 
         # if the media is a tv-show
         else:
 
+            # create a movie uri
             tv_show_uri = rdflib.URIRef(f"{schema}{titre}/{row['type']}")
-            g.add((tv_show_uri, name, Literal(titre)))
-
-            # Add triplets
+            # Add the uri to the graph
             g.add((tv_show_uri, RDF.type, TV_show))
+            # We still add the media type as an rdfs:label with language tag "en" to use the full power of RDF GRapohs
+            g.add((tv_show_uri, RDFS.label, Literal(titre, lang='en')))
+
+            """----------------------------Data properties----------------------------"""
 
             # Date where the tv-show got added on Netflix
             g.add((tv_show_uri, addedOnNetflixIn, Literal(row['date_added'])))
@@ -361,19 +382,8 @@ def csv_to_rdf(df, rdf_file_name):
             # release year
             g.add((tv_show_uri, releaseYear, Literal(row['release_year'])))
 
-            # age limit triplets
-            age_restriction = row['rating']
-            age_restriction_uri = rdflib.URIRef(f"{schema}{age_restriction}")
-            g.add((age_restriction_uri, RDF.type, AgeLimit))
-            g.add((tv_show_uri, ageLimitedTo, age_restriction_uri))
-            g.add((tv_show_uri, ageLimitedTo, Literal(row['rating'])))
-
-            # which other movies have this age limitation ?
-            g.add((age_restriction_uri, isAgeLimitationOf, tv_show_uri))
-            g.add((age_restriction_uri, isAgeLimitationOf, Literal(row['title'])))
-
             # title triplets
-            g.add((tv_show_uri, name, Literal(row['title'].replace('_', ''))))
+            g.add((tv_show_uri, title, Literal(row['title'])))
 
             # id triplets
             g.add((tv_show_uri, hasId, Literal(row['show_id'])))
@@ -382,7 +392,7 @@ def csv_to_rdf(df, rdf_file_name):
             g.add((tv_show_uri, description, Literal(row['description'].split(' '))))
 
             # duration
-            duree = row['duration'].replace(" ", "_")
+            duree = row['duration']
             if "min" in row['duration']:
                 literal_duration = Literal(int(duree.replace("min", "")))
                 g.add((tv_show_uri, durationInMin, literal_duration))
@@ -390,60 +400,80 @@ def csv_to_rdf(df, rdf_file_name):
                 g.add((literal_duration, durationOf, tv_show_uri))
 
             else:
-                literal_duration = Literal(duree.replace(" ", "_"))
-                g.add((tv_show_uri, duration, literal_duration))
+                g.add((tv_show_uri, duration, Literal(duree)))
                 # inverse
-                g.add((literal_duration, durationOf, tv_show_uri))
+                g.add((Literal(duree), durationOf, tv_show_uri))
 
-            # Add labels for casting, director, and Genres
-            for cast_member in row['cast'].split(','):
-                # Person_uri creation
-                person_uri = rdflib.URIRef(f"{schema}{cast_member}")
-                g.add((person_uri, RDF.type, Person))
-                # Create URI for actors
-                actors_uri = rdflib.URIRef(f"{schema}{cast_member}")
-                g.add((actors_uri, RDF.type, Actors))
-                g.add((tv_show_uri, containsActorNamed, actors_uri))
-                g.add((tv_show_uri, containsActorNamed, Literal(cast_member)))
-                #inverse
-                g.add((actors_uri, figuresIn, tv_show_uri))
-                g.add((Literal(cast_member), figuresIn, media_uri))
+                # Add labels for casting, director, and Genres, age limit
 
-
-            for director in row['director'].split(','):
-                # Person_uri creation
-                person_uri = rdflib.URIRef(f"{schema}{director}")
-                g.add((person_uri, RDF.type, Person))
-                # Create URI for directors
-                dir_uri = rdflib.URIRef(f"{schema}{director}")
-                g.add((dir_uri, RDF.type, Directeur))
-                g.add((tv_show_uri, directedBy, dir_uri))
-                g.add((tv_show_uri, directedBy, Literal(director)))
+                # age limit triplets
+                age_restriction = row['rating']
+                age_restriction_uri = rdflib.URIRef(f"{schema}{age_restriction}")
+                g.add((age_restriction_uri, RDF.type, AgeLimit))
+                g.add((tv_show_uri, ageLimitedTo, age_restriction_uri))
+                g.add((age_restriction_uri, RDFS.label, Literal(row['rating'], lang='en')))
                 # inverse
-                g.add((dir_uri, isDirectorOf, tv_show_uri))
-                g.add((Literal(director), isDirectorOf, tv_show_uri))
+                g.add((age_restriction_uri, isAgeLimitationOf, tv_show_uri))
 
-            for genre in row['listed_in'].split(','):
-                # Create URI for genre
-                genre_uri = rdflib.URIRef(f"{schema}{genre}")
-                g.add((genre_uri, RDF.type, Genre))
-                g.add((tv_show_uri, hasGenre, genre_uri))
-                g.add((tv_show_uri, hasGenre, Literal(genre)))
-                # inverse
-                g.add((genre_uri, isGenreOf, tv_show_uri))
-                g.add((Literal(genre), isGenreOf, tv_show_uri))
+                # Actors
+                for cast_member in row['cast'].split(','):
+                    # Person_uri creation
+                    person_uri = rdflib.URIRef(f"{schema}{cast_member}")
+                    # add uri to the graph
+                    g.add((person_uri, RDF.type, Person))
+                    # a Person has a Name
+                    g.add((person_uri, RDFS.label, Literal(cast_member, lang='en')))
+                    # Create URI for actors
+                    actors_uri = rdflib.URIRef(f"{schema}{cast_member}")
+                    # add the actors uri to the graph
+                    g.add((actors_uri, RDF.type, Actor))
+                    g.add((actors_uri, RDFS.label, Literal("Actor", lang='en')))
+                    # construct the relationships : a media contains named people that work as actors
+                    g.add((tv_show_uri, containsActorNamed, person_uri))
+                    # inverse
+                    g.add((person_uri, figuresIn, tv_show_uri))
+                    # second relationship: a person works as an actor
+                    g.add((person_uri, jobTitle, actors_uri))
+                    # inverse
+                    g.add((actors_uri, isJobTitleOf, person_uri))
 
+                for director in row['director'].split(','):
+                    # Person_uri creation
+                    person_uri = rdflib.URIRef(f"{schema}{director}")
+                    # add uri to the graph
+                    g.add((person_uri, RDF.type, Person))
+                    # a Person has a Name
+                    g.add((person_uri, RDFS.label, Literal(director, lang='en')))
+                    # Create URI for directors
+                    director_uri = rdflib.URIRef(f"{schema}{director}")
+                    # add the directors uri to the graph
+                    g.add((director_uri, RDF.type, Director))
+                    g.add((director_uri, RDFS.label, Literal("Director", lang='en')))
+                    # construct the relationships : a media contains named people that work as directors
+                    g.add((tv_show_uri, directedBy, person_uri))
+                    # inverse
+                    g.add((person_uri, isDirectorOf, tv_show_uri))
+                    # second relationship: a person works as an actor
+                    g.add((person_uri, jobTitle, director_uri))
+                    # inverse
+                    g.add((director_uri, isJobTitleOf, person_uri))
 
-            for country in row['country'].split(','):
-                country_uri = rdflib.URIRef(f"{schema}{country}")
-                g.add((country_uri, RDF.type, Country))
-                g.add((tv_show_uri, producedIn, country_uri))
-                g.add((tv_show_uri, producedIn, Literal(country)))
-                #inverse
-                g.add((country_uri, location_of, tv_show_uri))
-                g.add((Literal(country), location_of, tv_show_uri))
+                for genre in row['listed_in'].split(','):
+                    # Create URI for genre
+                    genre_uri = rdflib.URIRef(f"{schema}{genre}")
+                    g.add((genre_uri, RDF.type, Genre))
+                    g.add((tv_show_uri, hasGenre, genre_uri))
+                    g.add((genre_uri, RDFS.label, Literal(genre, lang='en')))
+                    # inverse
+                    g.add((genre_uri, isGenreOf, tv_show_uri))
 
-
+                for country in row['country'].split(','):
+                    country_uri = rdflib.URIRef(f"{schema}{country}")
+                    g.add((country_uri, RDF.type, Country))
+                    g.add((tv_show_uri, producedIn, country_uri))
+                    g.add((country_uri, RDFS.label, Literal(country, lang='en')))
+                    # inverse
+                    g.add((country_uri, location_of, tv_show_uri))
     # Serialize RDF graph to file
     g.serialize(destination=rdf_file_name, format='xml')
 
