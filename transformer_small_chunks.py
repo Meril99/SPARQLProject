@@ -231,7 +231,8 @@ def csv_to_rdf(df, rdf_file_name):
         # media_uri
         media_uri = rdflib.URIRef(f"{schema}{titre}/{row['type']}")
         g.add((media_uri, RDF.type, Media))
-
+	#title
+        g.add((media_uri, name, Literal(titre)))
 
         # If the media is a movie :
         if row['type'] == "Movie":
