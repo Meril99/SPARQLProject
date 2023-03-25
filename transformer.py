@@ -125,6 +125,12 @@ def csv_to_rdf(csv_path, rdf_file_name):
     g.add((name, RDFS.domain, Media))
     g.add((name, RDFS.range, XSD.string))
 
+    g.add((name, RDFS.domain, Movie))
+    g.add((name, RDFS.range, XSD.string))
+
+    g.add((name, RDFS.domain, TV_show))
+    g.add((name, RDFS.range, XSD.string))
+
     # directedBy
     g.add((directedBy, RDF.type, RDF.Property))
     g.add((directedBy, RDFS.domain, Media))
