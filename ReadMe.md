@@ -66,12 +66,12 @@ The name of the dataset is displayed below "SPARQL Endpoint".
 
 1. Open Sparklis in your browser at http://www.irisa.fr/LIS/ferre/sparklis/.
 
-At the top of the Sparklis interface, you will see a text box labeled "SPARQL endpoint." Replace the default URL in that box with your local Fuseki endpoint URL for the "tdb" dataset:
+At the top of the Sparklis interface, you will see a text box labeled "SPARQL endpoint." Replace the default URL in that box with your local Fuseki endpoint URL for the "tdb3" dataset:
 
 
 	http://localhost:3030/tdb/sparql
 	
-Press the "Connect" button or hit Enter on your keyboard. Sparklis will now connect to your local Fuseki endpoint with the "tdb" dataset.
+Press the "Connect" button or hit Enter on your keyboard. Sparklis will now connect to your local Fuseki endpoint with the "tdb4" dataset.
 
 Once connected, you can use Sparklis to explore, query, and visualize your RDF data using its interactive and natural language-based interface.
 Remember that both your Fuseki server and Sparklis must be running for this connection to work. Make sure you've started your Fuseki server and that it's accessible at the specified URL before attempting to connect Sparklis.

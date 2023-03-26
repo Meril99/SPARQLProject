@@ -111,7 +111,6 @@ def csv_to_rdf(csv_path, rdf_file_name):
     hasGenre = schema['hasGenre']
     description = schema['hasDescription']
     ageLimitedTo = schema['ageLimitedTo']
-    title = schema['title']
     releaseYear = schema['releasedIn']
     #inverse of age_limit
     isAgeLimitationOf = schema['isAgeLimitationFor']
@@ -133,10 +132,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
     g.add((hasId, RDFS.range, XSD.string))
     g.add((hasId, RDF.type, OWL.FunctionalProperty))
 
-    # name
-    g.add((title, RDF.type, RDF.Property))
-    g.add((title, RDFS.domain, Media))
-    g.add((title, RDFS.range, XSD.string))
+
 
 
     # directedBy
@@ -237,7 +233,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
         media_uri = rdflib.URIRef(f"{schema}{row['type']}/{titre}")
         g.add((media_uri, RDF.type, Media))
         #title
-        g.add((media_uri, title, Literal(titre)))
+        g.add((media_uri, RDFS.label, Literal(f"{split_camel_case(titre)}")))
         
 
 
@@ -250,7 +246,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
             # Add the uri to the graph
             g.add((movie_uri, RDF.type, Movie))
             # We still add the media type as an rdfs:label with language tag "en" to use the full power of RDF GRapohs
-            g.add((movie_uri, RDFS.label, Literal(f"{split_camel_case(titre)}", lang='en')))
+            g.add((movie_uri, RDFS.label,  Literal(f"{split_camel_case(titre)}", lang='en')))
 
 
             """----------------------Data properties---------------------------------"""

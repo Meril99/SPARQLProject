@@ -109,7 +109,6 @@ def csv_to_rdf(df, rdf_file_name):
     hasGenre = schema['hasGenre']
     description = schema['hasDescription']
     ageLimitedTo = schema['ageLimitedTo']
-    title = schema['title']
     releaseYear = schema['releasedIn']
     # inverse of age_limit
     isAgeLimitationOf = schema['isAgeLimitationFor']
@@ -122,18 +121,12 @@ def csv_to_rdf(df, rdf_file_name):
     # inverseOf directedBY
     isDirectorOf = schema['isDirectorOf']
 
-
     # create the properties and spoecify domain + range (id)
     # An id is unique, that's why it is a functional Property
     g.add(((hasId, RDF.type, RDF.Property)))
     g.add((hasId, RDFS.domain, Media))
     g.add((hasId, RDFS.range, XSD.string))
     g.add((hasId, RDF.type, OWL.FunctionalProperty))
-
-    # name
-    g.add((title, RDF.type, RDF.Property))
-    g.add((title, RDFS.domain, Media))
-    g.add((title, RDFS.range, XSD.string))
 
     # directedBy
     g.add((directedBy, RDF.type, RDF.Property))
@@ -231,7 +224,7 @@ def csv_to_rdf(df, rdf_file_name):
         media_uri = rdflib.URIRef(f"{schema}{row['type']}/{titre}")
         g.add((media_uri, RDF.type, Media))
         # title
-        g.add((media_uri, title, Literal(titre)))
+        g.add((media_uri, RDFS.label, Literal(f"{split_camel_case(titre)}")))
 
         # If the media is a movie :
         if row['type'] == "Movie":
@@ -356,7 +349,6 @@ def csv_to_rdf(df, rdf_file_name):
             # release year
             g.add((tv_show_uri, releaseYear, Literal(row['release_year'])))
 
-
             # id triplets
             g.add((tv_show_uri, hasId, Literal(row['show_id'])))
 
@@ -416,8 +408,7 @@ def csv_to_rdf(df, rdf_file_name):
                     director_uri = rdflib.URIRef(f"{schema}{director}")
                     # add the directors uri to the graph
                     g.add((director_uri, RDF.type, Director))
-                    g.add(
-                        (director_uri, RDFS.label, Literal(f"{split_camel_case(director)}", lang='en')))
+                    g.add((director_uri, RDFS.label, Literal(f"{split_camel_case(director)}", lang='en')))
                     # construct the relationships : a media contains named people that work as directors
                     g.add((tv_show_uri, directedBy, person_uri))
                     # inverse
@@ -443,7 +434,6 @@ def csv_to_rdf(df, rdf_file_name):
     g.serialize(destination=rdf_file_name, format='xml')
 
     return g
-
 chunk_size = 100  # Define the size of each chunk
 df = pd.read_csv("netflix.csv")
 df_chunks = split_dataframe(df, chunk_size)
