@@ -5,6 +5,11 @@ import re
 from rdflib import RDF, RDFS, OWL, XSD, Literal
 
 
+
+# seperate a camalCased word
+def split_camel_case(word):
+    return ' '.join(re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', word))
+
 def csv_to_rdf(csv_path, rdf_file_name):
     # Load the CSV file into a pandas dataframe
     df = pd.read_csv(csv_path)
@@ -20,7 +25,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
     # Fill blank rows
     df = df.fillna("Unknown")
 
-    # Put everything in CamelCase and remove " "
+    # Put everything in CamelCase and remove some punctioncharacters
     df.country = df.country.str.replace(" ", "")
     df.director = df.director.str.replace(" ", "")
     df.cast =df.cast.str.replace(" ", "")
@@ -51,11 +56,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
     Genre = schema['Genre']
     AgeLimit = schema['Age_category']
     Director = schema['Director']
-    Job = schema['Job']
 
-    # Create classes
-    #Job
-    g.add((Job, RDF.type, RDFS.Class))
 
     #Media
     g.add((Media, RDF.type, RDFS.Class))
@@ -73,11 +74,13 @@ def csv_to_rdf(csv_path, rdf_file_name):
 
     #Actors
     g.add((Actor, RDF.type, RDFS.Class))
-    g.add((Actor, RDFS.subClassOf, Job))
+    g.add((Actor, RDFS.subClassOf, Person))
+
 
     #Directeur
     g.add((Director, RDF.type, RDFS.Class))
-    g.add((Director, RDFS.subClassOf, Job))
+    g.add((Director, RDFS.subClassOf, Person))
+
 
     #Country
     g.add((Country, RDF.type, RDFS.Class))
@@ -120,8 +123,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
     isGenreOf=schema['isGenreOf']
     #inverseOf directedBY
     isDirectorOf=schema['isDirectorOf']
-    jobTitle=schema['jobTitle']
-    isJobTitleOf=schema['isJobTitleOf']
+
 
 
     # create the properties and spoecify domain + range (id)
@@ -224,21 +226,6 @@ def csv_to_rdf(csv_path, rdf_file_name):
     g.add((isDirectorOf, RDFS.domain, Person))
     g.add((isDirectorOf, RDFS.range, Media))
 
-    # jobTitle
-    g.add((jobTitle, RDF.type, RDF.Property))
-    g.add((jobTitle, RDFS.domain, Person))
-    g.add((jobTitle, RDFS.range, Job))
-    g.add((jobTitle, RDFS.range, Director))
-    g.add((jobTitle, RDFS.range, Actor))
-
-    # isJobTitleOf
-    g.add((isJobTitleOf, RDF.type, RDF.Property))
-    g.add((isJobTitleOf, OWL.inverseOf, jobTitle))
-    g.add((isJobTitleOf, RDFS.domain, Director))
-    g.add((isJobTitleOf, RDFS.domain, Actor))
-    g.add((jobTitle, RDFS.domain, Job))
-    g.add((isJobTitleOf, RDFS.range, Person))
-
 
     """----------------------Triplets--------------------------------"""
     # Create triples for each row in dataframe
@@ -247,7 +234,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
         titre=row['title']
 
         # media_uri
-        media_uri = rdflib.URIRef(f"{schema}{titre}/{row['type']}")
+        media_uri = rdflib.URIRef(f"{schema}{row['type']}/{titre}")
         g.add((media_uri, RDF.type, Media))
         #title
         g.add((media_uri, title, Literal(titre)))
@@ -259,11 +246,11 @@ def csv_to_rdf(csv_path, rdf_file_name):
 
             mediatype = row['type']
             # create a movie uri
-            movie_uri = rdflib.URIRef(f"{schema}{titre}/{mediatype}")
+            movie_uri = rdflib.URIRef(f"{schema}{mediatype}/{titre}")
             # Add the uri to the graph
             g.add((movie_uri, RDF.type, Movie))
             # We still add the media type as an rdfs:label with language tag "en" to use the full power of RDF GRapohs
-            g.add((movie_uri, RDFS.label, Literal(titre, lang='en')))
+            g.add((movie_uri, RDFS.label, Literal(f"{split_camel_case(titre)}", lang='en')))
 
 
             """----------------------Data properties---------------------------------"""
@@ -271,8 +258,6 @@ def csv_to_rdf(csv_path, rdf_file_name):
             # Date where the movie got added on Netflix
             g.add((movie_uri, addedOnNetflixIn, Literal(row['date_added'])))
 
-            # this will allow us to display clean answers to our requests but is not necessary since we got a labeled movie_uri
-            g.add((movie_uri, title, Literal(titre)))
 
             # id triplets
             g.add((movie_uri, hasId, Literal(row['show_id'])))
@@ -292,9 +277,9 @@ def csv_to_rdf(csv_path, rdf_file_name):
                 g.add((literal_duration, durationOf, movie_uri))
             #duration with no minutes
             else:
-                g.add((movie_uri, duration, duree))
+                g.add((movie_uri, duration, Literal(duree)))
                 # inverse
-                g.add((duree, durationOf, movie_uri))
+                g.add((Literal(duree), durationOf, movie_uri))
 
                 """----------------------Entities relationships---------------------------------"""
 
@@ -317,20 +302,17 @@ def csv_to_rdf(csv_path, rdf_file_name):
                 #add uri to the graph
                 g.add((person_uri, RDF.type, Person))
                 # a Person has a Name
-                g.add((person_uri, RDFS.label, Literal(cast_member, lang='en')))
+                g.add((person_uri, RDFS.label, Literal(f"{split_camel_case(cast_member)}", lang='en')))
                 # Create URI for actors
                 actors_uri = rdflib.URIRef(f"{schema}{cast_member}")
                 # add the actors uri to the graph
                 g.add((actors_uri, RDF.type, Actor))
-                g.add((actors_uri, RDFS.label, Literal("Actor", lang='en')))
+                g.add((actors_uri, RDFS.label, Literal(f"{split_camel_case(cast_member)}", lang='en')))
                 #construct the relationships : a media contains named people that work as actors
                 g.add((movie_uri, containsActorNamed, person_uri))
                 #inverse
                 g.add((person_uri, figuresIn, movie_uri))
-                #second relationship: a person works as an actor
-                g.add((person_uri, jobTitle, actors_uri))
-                #inverse
-                g.add((actors_uri, isJobTitleOf, person_uri))
+
 
 
 
@@ -343,20 +325,17 @@ def csv_to_rdf(csv_path, rdf_file_name):
                 # add uri to the graph
                 g.add((person_uri, RDF.type, Person))
                 # a Person has a Name
-                g.add((person_uri, RDFS.label, Literal(director, lang='en')))
+                g.add((person_uri, RDFS.label,  Literal(f"{split_camel_case(director)}", lang='en')))
                 # Create URI for directors
                 director_uri = rdflib.URIRef(f"{schema}{director}")
                 # add the directors uri to the graph
                 g.add((director_uri, RDF.type, Director))
-                g.add((director_uri, RDFS.label, Literal("Director", lang='en')))
+                g.add((director_uri, RDFS.label, Literal(f"{split_camel_case(director)}", lang='en')))
                 # construct the relationships : a media contains named people that work as directors
                 g.add((movie_uri, directedBy, person_uri))
                 # inverse
                 g.add((person_uri, isDirectorOf, movie_uri))
-                # second relationship: a person works as an actor
-                g.add((person_uri, jobTitle, director_uri))
-                # inverse
-                g.add((director_uri, isJobTitleOf, person_uri))
+
 
             for genre in row['listed_in'].split(','):
                 # Create URI for genre
@@ -381,11 +360,11 @@ def csv_to_rdf(csv_path, rdf_file_name):
         else:
 
             # create a movie uri
-            tv_show_uri = rdflib.URIRef(f"{schema}{titre}/{row['type']}")
+            tv_show_uri = rdflib.URIRef(f"{schema}{row['type']}/{titre}")
             # Add the uri to the graph
             g.add((tv_show_uri, RDF.type, TV_show))
             # We still add the media type as an rdfs:label with language tag "en" to use the full power of RDF GRapohs
-            g.add((tv_show_uri, RDFS.label, Literal(titre, lang='en')))
+            g.add((tv_show_uri, RDFS.label, Literal(f"{split_camel_case(titre)}", lang='en')))
 
 
             """----------------------------Data properties----------------------------"""
@@ -396,8 +375,6 @@ def csv_to_rdf(csv_path, rdf_file_name):
             # release year
             g.add((tv_show_uri, releaseYear, Literal(row['release_year'])))
 
-            # title triplets
-            g.add((tv_show_uri, title, Literal(row['title'])))
 
             # id triplets
             g.add((tv_show_uri, hasId, Literal(row['show_id'])))
@@ -436,20 +413,17 @@ def csv_to_rdf(csv_path, rdf_file_name):
                     # add uri to the graph
                     g.add((person_uri, RDF.type, Person))
                     # a Person has a Name
-                    g.add((person_uri, RDFS.label, Literal(cast_member, lang='en')))
+                    g.add((person_uri, RDFS.label, Literal(f"{split_camel_case(cast_member)}", lang='en')))
                     # Create URI for actors
                     actors_uri = rdflib.URIRef(f"{schema}{cast_member}")
                     # add the actors uri to the graph
                     g.add((actors_uri, RDF.type, Actor))
-                    g.add((actors_uri, RDFS.label, Literal("Actor", lang='en')))
+                    g.add((actors_uri, RDFS.label, Literal(f"{split_camel_case(cast_member)}", lang='en')))
                     # construct the relationships : a media contains named people that work as actors
                     g.add((tv_show_uri, containsActorNamed, person_uri))
                     # inverse
                     g.add((person_uri, figuresIn, tv_show_uri))
-                    # second relationship: a person works as an actor
-                    g.add((person_uri, jobTitle, actors_uri))
-                    # inverse
-                    g.add((actors_uri, isJobTitleOf, person_uri))
+
 
                 for director in row['director'].split(','):
                     # Person_uri creation
@@ -457,20 +431,17 @@ def csv_to_rdf(csv_path, rdf_file_name):
                     # add uri to the graph
                     g.add((person_uri, RDF.type, Person))
                     # a Person has a Name
-                    g.add((person_uri, RDFS.label, Literal(director, lang='en')))
+                    g.add((person_uri, RDFS.label, Literal(f"{split_camel_case(director)}", lang='en')))
                     # Create URI for directors
                     director_uri = rdflib.URIRef(f"{schema}{director}")
                     # add the directors uri to the graph
                     g.add((director_uri, RDF.type, Director))
-                    g.add((director_uri, RDFS.label, Literal("Director", lang='en')))
+                    g.add((director_uri, RDFS.label, Literal(f"{split_camel_case(director)}", lang='en')))
                     # construct the relationships : a media contains named people that work as directors
                     g.add((tv_show_uri, directedBy, person_uri))
                     # inverse
                     g.add((person_uri, isDirectorOf, tv_show_uri))
-                    # second relationship: a person works as an actor
-                    g.add((person_uri, jobTitle, director_uri))
-                    # inverse
-                    g.add((director_uri, isJobTitleOf, person_uri))
+
 
                 for genre in row['listed_in'].split(','):
                     # Create URI for genre
@@ -492,4 +463,4 @@ def csv_to_rdf(csv_path, rdf_file_name):
     g.serialize(destination=rdf_file_name, format='xml')
 
     return g
-csv_to_rdf("netflix_titles.csv", "netflix_titles_transformer_update.owl")
+csv_to_rdf("netflix.csv", "netflix.owl")

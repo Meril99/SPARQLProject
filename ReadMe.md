@@ -75,5 +75,14 @@ Press the "Connect" button or hit Enter on your keyboard. Sparklis will now conn
 
 Once connected, you can use Sparklis to explore, query, and visualize your RDF data using its interactive and natural language-based interface.
 Remember that both your Fuseki server and Sparklis must be running for this connection to work. Make sure you've started your Fuseki server and that it's accessible at the specified URL before attempting to connect Sparklis.
+
+
+
+--------------------------------------------------- Protégé -------------------------------------------------------------------------------
+
+Before you import the files on protégé, open Protégé with this command from your terminal (assuming you are on Ubuntu/Debian):
+	./run.sh -Xmx[70M]m
+
+This will allocate 70 MB to make sure the file can be imported on Protégé.
 	
 
