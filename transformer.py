@@ -46,7 +46,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
     TV_show = schema['TV_show']
     Movie = schema['Movie']
     Person = schema['Person']
-    Actor = schema['Actors']
+    Actor = schema['Actor']
     Country = schema['Country']
     Genre = schema['Genre']
     AgeLimit = schema['Age_category']
@@ -227,6 +227,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
     # jobTitle
     g.add((jobTitle, RDF.type, RDF.Property))
     g.add((jobTitle, RDFS.domain, Person))
+    g.add((jobTitle, RDFS.range, Job))
     g.add((jobTitle, RDFS.range, Director))
     g.add((jobTitle, RDFS.range, Actor))
 
@@ -235,6 +236,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
     g.add((isJobTitleOf, OWL.inverseOf, jobTitle))
     g.add((isJobTitleOf, RDFS.domain, Director))
     g.add((isJobTitleOf, RDFS.domain, Actor))
+    g.add((jobTitle, RDFS.domain, Job))
     g.add((isJobTitleOf, RDFS.range, Person))
 
 
