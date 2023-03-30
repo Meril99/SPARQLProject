@@ -24,9 +24,10 @@ Download the latest Fuseki release from the Apache Jena website (https://jena.ap
 	tar -xvzf apache-jena-fuseki-4.2.0.tar.gz
 	
 
-3. Start Fuseki server:
+3. Start Fuseki server by running this command below in the apache-jena-fuseki-4.7.0 directory:
 
 	./fuseki-server 
+	
 By default, the Fuseki server will run on port 3030. You can change this by adding the --port=<port_number> option when starting the server.
 
 4. Access Fuseki web interface:
@@ -47,7 +48,7 @@ The name of the dataset is displayed below "SPARQL Endpoint".
 
 1. Open Sparklis in your browser at http://www.irisa.fr/LIS/ferre/sparklis/.
 
-At the top of the Sparklis interface, you will see a text box labeled "SPARQL endpoint." Replace the default URL in that box with your local Fuseki endpoint URL for the "tdb3" dataset:
+At the top of the Sparklis interface, you will see a text box labeled "SPARQL endpoint." Replace the default URL in that box with your local Fuseki endpoint URL for the "name of your dataset" dataset:
 
 
 	http://localhost:3030/"name of your database"/sparql

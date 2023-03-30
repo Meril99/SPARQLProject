@@ -249,7 +249,7 @@ def csv_to_rdf(df, rdf_file_name):
             g.add((movie_uri, description, Literal(row['description'].split(' '))))
 
             # release_year triplets
-            g.add((movie_uri, releaseYear, Literal(row['release_year'])))
+            g.add((movie_uri, releaseYear, Literal(int(row['release_year']))))
 
             # duration in minutes
             duree = row['duration']
@@ -347,7 +347,7 @@ def csv_to_rdf(df, rdf_file_name):
             g.add((tv_show_uri, addedOnNetflixIn, Literal(row['date_added'])))
 
             # release year
-            g.add((tv_show_uri, releaseYear, Literal(row['release_year'])))
+            g.add((tv_show_uri, releaseYear, Literal(int(row['release_year']))))
 
             # id triplets
             g.add((tv_show_uri, hasId, Literal(row['show_id'])))
