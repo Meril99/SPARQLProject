@@ -338,7 +338,7 @@ def create_tv_show_triples(row, g, schema,titre):
     # create a movie uri
     tv_show_uri = rdflib.URIRef(f"{schema}{mediatype}/{titre}")
     # Add the uri to the graph
-    g.add((tv_show_uri, RDF.type, schema['Movie']))
+    g.add((tv_show_uri, RDF.type, schema['TV_show']))
     # We still add the media type as an rdfs:label with language tag "en" to use the full power of RDF GRapohs
     g.add((tv_show_uri, RDFS.label, Literal(f"{split_camel_case(titre)}", lang='en')))
 
