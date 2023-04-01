@@ -13,7 +13,8 @@ def split_camel_case(text):
     if text == "TV":
         return text
     else:
-        return re.sub('([A-Z][a-z]+)', r' \1', re.sub('([A-Z]+)', r' \1', text)).strip()
+        return re.sub(r'(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])', ' ', text)
+
 
 
 
@@ -221,6 +222,11 @@ def add_properties_to_graph(g, schema):
 def create_triples(df, g, schema):
     for _, row in tqdm(df.iterrows(), total=df.shape[0], desc="Creating triples"):
         titre = row['title']
+        # media_uri
+        media_uri = rdflib.URIRef(f"{schema}{row['type']}/{titre}")
+        g.add((media_uri, RDF.type, schema['Media']))
+        # title
+        g.add((media_uri, RDFS.label, Literal(f"{split_camel_case(titre)}")))
 
         if row['type'] == "Movie":
             create_movie_triples(row, g, schema,titre)
