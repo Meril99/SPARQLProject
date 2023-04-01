@@ -7,8 +7,11 @@ from rdflib import RDF, RDFS, OWL, XSD, Literal
 
 
 # seperate a camalCased word
-def split_camel_case(word):
-    return ' '.join(re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', word))
+def split_camel_case(text):
+    if text == "TV":
+        return text
+    else:
+        return re.sub('([A-Z][a-z]+)', r' \1', re.sub('([A-Z]+)', r' \1', text)).strip()
 
 def csv_to_rdf(csv_path, rdf_file_name):
     # Load the CSV file into a pandas dataframe
@@ -338,7 +341,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
                 genre_uri = rdflib.URIRef(f"{schema}{genre}")
                 g.add((genre_uri, RDF.type, Genre))
                 g.add((movie_uri, hasGenre, genre_uri))
-                g.add((genre_uri, RDFS.label, Literal(genre, lang='en')))
+                g.add((genre_uri, RDFS.label, Literal(split_camel_case(genre), lang='en')))
                 #inverse
                 g.add((genre_uri, isGenreOf, movie_uri))
 
@@ -347,7 +350,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
                 country_uri = rdflib.URIRef(f"{schema}{country}")
                 g.add((country_uri, RDF.type, Country))
                 g.add((movie_uri, producedIn, country_uri))
-                g.add((country_uri, RDFS.label, Literal(country, lang='en')))
+                g.add((country_uri, RDFS.label, Literal(split_camel_case(country), lang='en')))
                 #inverse
                 g.add((country_uri, location_of, movie_uri))
 
@@ -387,9 +390,9 @@ def csv_to_rdf(csv_path, rdf_file_name):
                 g.add((literal_duration, durationOf, tv_show_uri))
 
             else:
-                g.add((tv_show_uri, duration, Literal(duree)))
+                g.add((tv_show_uri, duration, Literal(split_camel_case(duree))))
                 # inverse
-                g.add((Literal(duree), durationOf, tv_show_uri))
+                g.add((Literal(split_camel_case(duree)), durationOf, tv_show_uri))
 
             # Add labels for casting, director, and Genres, age limit
 
@@ -444,7 +447,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
                     genre_uri = rdflib.URIRef(f"{schema}{genre}")
                     g.add((genre_uri, RDF.type, Genre))
                     g.add((tv_show_uri, hasGenre, genre_uri))
-                    g.add((genre_uri, RDFS.label, Literal(genre, lang='en')))
+                    g.add((genre_uri, RDFS.label, Literal(split_camel_case(genre), lang='en')))
                     # inverse
                     g.add((genre_uri, isGenreOf, tv_show_uri))
 
@@ -452,7 +455,7 @@ def csv_to_rdf(csv_path, rdf_file_name):
                     country_uri = rdflib.URIRef(f"{schema}{country}")
                     g.add((country_uri, RDF.type, Country))
                     g.add((tv_show_uri, producedIn, country_uri))
-                    g.add((country_uri, RDFS.label, Literal(country, lang='en')))
+                    g.add((country_uri, RDFS.label, Literal(split_camel_case(country), lang='en')))
                     # inverse
                     g.add((country_uri, location_of, tv_show_uri))
     # Serialize RDF graph to file
